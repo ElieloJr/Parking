@@ -13,6 +13,8 @@
 		29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29D0138828ABE34500D08480 /* Parking.xcdatamodeld */; };
 		29D0138C28ABE34600D08480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D0138B28ABE34600D08480 /* Assets.xcassets */; };
 		29D0138F28ABE34600D08480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D0138D28ABE34600D08480 /* LaunchScreen.storyboard */; };
+		29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139C28ABEA0D00D08480 /* LoginViewController.swift */; };
+		29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139E28ABEA2800D08480 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		29D0138B28ABE34600D08480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29D0138E28ABE34600D08480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29D0139028ABE34600D08480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29D0139C28ABEA0D00D08480 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		29D0139E28ABEA2800D08480 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,11 @@
 		29D0137E28ABE34500D08480 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				29D0139628ABE92900D08480 /* Extensions */,
+				29D0139828ABE94F00D08480 /* Repository */,
+				29D0139728ABE93700D08480 /* Model */,
+				29D0139928ABE95A00D08480 /* Sections */,
+				29D0139A28ABE9AD00D08480 /* Views */,
 				29D0137F28ABE34500D08480 /* AppDelegate.swift */,
 				29D0138128ABE34500D08480 /* SceneDelegate.swift */,
 				29D0138328ABE34500D08480 /* ViewController.swift */,
@@ -65,6 +74,51 @@
 				29D0138828ABE34500D08480 /* Parking.xcdatamodeld */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		29D0139628ABE92900D08480 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		29D0139728ABE93700D08480 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		29D0139828ABE94F00D08480 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		29D0139928ABE95A00D08480 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				29D0139B28ABE9C100D08480 /* Login */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		29D0139A28ABE9AD00D08480 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		29D0139B28ABE9C100D08480 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				29D0139C28ABEA0D00D08480 /* LoginViewController.swift */,
+				29D0139E28ABEA2800D08480 /* LoginViewModel.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +193,9 @@
 			files = (
 				29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */,
 				29D0138428ABE34500D08480 /* ViewController.swift in Sources */,
+				29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */,
 				29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */,
+				29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */,
 				29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
