@@ -18,6 +18,14 @@ class LoginViewController: DefaultViewController {
         return imageView
     }()
     
+    private lazy var loginLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Login"
+        label.font = UIFont(name:"Arial Hebrew Bold", size: 25.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -26,6 +34,7 @@ class LoginViewController: DefaultViewController {
 
     private func setupView() {
         view.addSubview(logoImageView)
+        view.addSubview(loginLabel)
     }
     
     private func setupConstraints() {
@@ -33,5 +42,8 @@ class LoginViewController: DefaultViewController {
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        loginLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100).isActive = true
+        loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
     }
 }
