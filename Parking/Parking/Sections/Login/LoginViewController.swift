@@ -26,8 +26,11 @@ class LoginViewController: DefaultViewController {
         return label
     }()
     
+    private lazy var textfield = ParkingTextField(text: "Email")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
         setupConstraints()
     }
@@ -35,6 +38,7 @@ class LoginViewController: DefaultViewController {
     private func setupView() {
         view.addSubview(logoImageView)
         view.addSubview(loginLabel)
+        view.addSubview(textfield)
     }
     
     private func setupConstraints() {
@@ -44,6 +48,11 @@ class LoginViewController: DefaultViewController {
         logoImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
         loginLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100).isActive = true
-        loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        
+        textfield.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 10).isActive = true
+        textfield.leadingAnchor.constraint(equalTo: loginLabel.leadingAnchor).isActive = true
+        textfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        textfield.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
 }

@@ -16,6 +16,7 @@
 		29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139C28ABEA0D00D08480 /* LoginViewController.swift */; };
 		29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139E28ABEA2800D08480 /* LoginViewModel.swift */; };
 		29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A028ABEC1600D08480 /* DefaultViewController.swift */; };
+		29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A228AC0D9D00D08480 /* ParkingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		29D0139C28ABEA0D00D08480 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		29D0139E28ABEA2800D08480 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		29D013A028ABEC1600D08480 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
+		29D013A228AC0D9D00D08480 /* ParkingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				29D013A028ABEC1600D08480 /* DefaultViewController.swift */,
+				29D013A228AC0D9D00D08480 /* ParkingTextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */,
 				29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */,
 				29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */,
+				29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */,
 				29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
