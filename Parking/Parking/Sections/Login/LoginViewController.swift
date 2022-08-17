@@ -68,6 +68,8 @@ class LoginViewController: DefaultViewController {
         return view
     }()
     
+    private lazy var registerButton = ParkingButton(content: "Criar Conta".uppercased(), type: .secondary)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,6 +88,8 @@ class LoginViewController: DefaultViewController {
         view.addSubview(leftSeparatorView)
         view.addSubview(registerLabel)
         view.addSubview(rightSeparatorView)
+        
+        view.addSubview(registerButton)
     }
     
     private func setupConstraints() {
@@ -119,7 +123,7 @@ class LoginViewController: DefaultViewController {
         leftSeparatorView.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
         leftSeparatorView.widthAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
         leftSeparatorView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        leftSeparatorView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        leftSeparatorView.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -26).isActive = true
         
         registerLabel.centerYAnchor.constraint(equalTo: leftSeparatorView.centerYAnchor, constant: 2).isActive = true
         registerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -128,5 +132,10 @@ class LoginViewController: DefaultViewController {
         rightSeparatorView.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
         rightSeparatorView.widthAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
         rightSeparatorView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        
+        registerButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        registerButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        registerButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        registerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
     }
 }
