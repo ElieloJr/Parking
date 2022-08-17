@@ -30,6 +30,8 @@ class LoginViewController: DefaultViewController {
     
     private lazy var passwordTextField = ParkingTextField(text: "Senha", type: .default, isPassword: true)
     
+    private lazy var entryButton = ParkingButton(content: "Entrar", type: .primary)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +44,7 @@ class LoginViewController: DefaultViewController {
         view.addSubview(loginLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
+        view.addSubview(entryButton)
     }
     
     private func setupConstraints() {
@@ -60,7 +63,12 @@ class LoginViewController: DefaultViewController {
         
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
         passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        entryButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 28).isActive = true
+        entryButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        entryButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        entryButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960710628AD28B300B70FB3 /* ParkingButton.swift */; };
+		2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960710C28AD2BD200B70FB3 /* Colors.swift */; };
 		29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0137F28ABE34500D08480 /* AppDelegate.swift */; };
 		29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0138128ABE34500D08480 /* SceneDelegate.swift */; };
 		29D0138428ABE34500D08480 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0138328ABE34500D08480 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2960710628AD28B300B70FB3 /* ParkingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingButton.swift; sourceTree = "<group>"; };
+		2960710C28AD2BD200B70FB3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		29D0137C28ABE34500D08480 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D0137F28ABE34500D08480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29D0138128ABE34500D08480 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2960710828AD2B6600B70FB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29D013A028ABEC1600D08480 /* DefaultViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2960710928AD2B7100B70FB3 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				29D013A228AC0D9D00D08480 /* ParkingTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		2960710A28AD2B8100B70FB3 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				2960710628AD28B300B70FB3 /* ParkingButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		2960710B28AD2BAA00B70FB3 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				2960710C28AD2BD200B70FB3 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		29D0137328ABE34500D08480 = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +119,10 @@
 		29D0139628ABE92900D08480 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				29D013A028ABEC1600D08480 /* DefaultViewController.swift */,
-				29D013A228AC0D9D00D08480 /* ParkingTextField.swift */,
+				2960710B28AD2BAA00B70FB3 /* Colors */,
+				2960710828AD2B6600B70FB3 /* ViewController */,
+				2960710928AD2B7100B70FB3 /* TextField */,
+				2960710A28AD2B8100B70FB3 /* Button */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -198,10 +236,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */,
+				2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */,
 				29D0138428ABE34500D08480 /* ViewController.swift in Sources */,
 				29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */,
 				29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */,
 				29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */,
+				2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */,
 				29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */,
 				29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */,
 				29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */,

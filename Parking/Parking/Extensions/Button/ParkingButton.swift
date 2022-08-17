@@ -17,6 +17,7 @@ class ParkingButton: UIButton {
 
     public convenience init(content: String, type: typeButton) {
         self.init(frame: .zero)
+        self.setTitle(content, for: .normal)
         
         switch type {
         case .primary:
@@ -32,19 +33,27 @@ class ParkingButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.layer.cornerRadius = 10
+        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func primaryButton(_ text: String) {
-        self.setTitle(text, for: .normal)
-        self.backgroundColor = 
+        self.backgroundColor = Colors.blue
+        self.setTitleColor(.white, for: .normal)
     }
     
     private func secondaryButton(_ text: String) {
-        
+        self.backgroundColor = .white
+        self.setTitleColor(Colors.lightGrey, for: .normal)
+        self.layer.borderColor = Colors.lightGrey.cgColor
+        self.layer.borderWidth = 2
     }
     
     private func tercearyButton(_ text: String) {
-        
+        self.backgroundColor = .clear
+        self.setTitleColor(Colors.blue, for: .normal)
     }
     
     required init?(coder: NSCoder) {

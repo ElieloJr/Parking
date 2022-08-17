@@ -11,6 +11,6 @@ class DefaultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.00)
+        view.backgroundColor = Colors.defaultBackground
     }
 }
