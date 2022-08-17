@@ -32,6 +32,17 @@ class LoginViewController: DefaultViewController {
     
     private lazy var entryButton = ParkingButton(content: "Entrar", type: .primary)
     
+    private lazy var messageErrorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Email ou senha inválido"
+        label.textColor = .red
+        label.isHidden = false
+        label.textAlignment = .center
+        label.font = UIFont(name:"Arial Hebrew Bold", size: 17.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +56,7 @@ class LoginViewController: DefaultViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(entryButton)
+        view.addSubview(messageErrorLabel)
     }
     
     private func setupConstraints() {
@@ -70,5 +82,9 @@ class LoginViewController: DefaultViewController {
         entryButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
         entryButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
         entryButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        messageErrorLabel.topAnchor.constraint(equalTo: entryButton.bottomAnchor, constant: 10).isActive = true
+        messageErrorLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        messageErrorLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
     }
 }
