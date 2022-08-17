@@ -43,6 +43,31 @@ class LoginViewController: DefaultViewController {
         return label
     }()
     
+    private lazy var leftSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Colors.lightGrey
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var registerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Cadastre-se".uppercased()
+        label.textColor = Colors.lightGrey
+        label.isHidden = false
+        label.textAlignment = .center
+        label.font = UIFont(name:"Arial Hebrew Bold", size: 19.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var rightSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Colors.lightGrey
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,6 +82,10 @@ class LoginViewController: DefaultViewController {
         view.addSubview(passwordTextField)
         view.addSubview(entryButton)
         view.addSubview(messageErrorLabel)
+        
+        view.addSubview(leftSeparatorView)
+        view.addSubview(registerLabel)
+        view.addSubview(rightSeparatorView)
     }
     
     private func setupConstraints() {
@@ -86,5 +115,18 @@ class LoginViewController: DefaultViewController {
         messageErrorLabel.topAnchor.constraint(equalTo: entryButton.bottomAnchor, constant: 10).isActive = true
         messageErrorLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
         messageErrorLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        
+        leftSeparatorView.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        leftSeparatorView.widthAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
+        leftSeparatorView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        leftSeparatorView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+        
+        registerLabel.centerYAnchor.constraint(equalTo: leftSeparatorView.centerYAnchor, constant: 2).isActive = true
+        registerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        rightSeparatorView.centerYAnchor.constraint(equalTo: leftSeparatorView.centerYAnchor).isActive = true
+        rightSeparatorView.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        rightSeparatorView.widthAnchor.constraint(equalToConstant: view.frame.width/4).isActive = true
+        rightSeparatorView.heightAnchor.constraint(equalToConstant: 4).isActive = true
     }
 }
