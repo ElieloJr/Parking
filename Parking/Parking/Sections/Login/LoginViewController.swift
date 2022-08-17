@@ -34,9 +34,8 @@ class LoginViewController: DefaultViewController {
     
     private lazy var messageErrorLabel: UILabel = {
         let label = UILabel()
-        label.text = "Email ou senha inválido"
         label.textColor = .red
-        label.isHidden = false
+        label.isHidden = true
         label.textAlignment = .center
         label.font = UIFont(name:"Arial Hebrew Bold", size: 17.0)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -70,14 +69,19 @@ class LoginViewController: DefaultViewController {
     
     private lazy var registerButton = ParkingButton(content: "Criar Conta".uppercased(), type: .secondary)
     
+    let viewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        setupUI()
         setupConstraints()
     }
 
     private func setupView() {
+        viewModel.delegate = self
+        
         view.addSubview(logoImageView)
         view.addSubview(loginLabel)
         view.addSubview(emailTextField)
@@ -90,6 +94,10 @@ class LoginViewController: DefaultViewController {
         view.addSubview(rightSeparatorView)
         
         view.addSubview(registerButton)
+    }
+    
+    private func setupUI() {
+        entryButton.addTarget(self, action: #selector(self.validateEntry), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -137,5 +145,21 @@ class LoginViewController: DefaultViewController {
         registerButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
         registerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
+    }
+    
+    @IBAction func validateEntry(_ sender: Any) {
+        guard let email = emailTextField.text,
+                let password = passwordTextField.text else { return }
+        viewModel.validateData(email, and: password)
+    }
+}
+
+extension LoginViewController: LoginViewDelegate {
+    func authenticateSuccess() {
+        messageErrorLabel.isHidden = true
+    }
+    func authenticateFailed(messageError: String) {
+        messageErrorLabel.text = messageError
+        messageErrorLabel.isHidden = false
     }
 }
