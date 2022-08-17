@@ -26,7 +26,9 @@ class LoginViewController: DefaultViewController {
         return label
     }()
     
-    private lazy var textfield = ParkingTextField(text: "Email")
+    private lazy var emailTextField = ParkingTextField(text: "Email", type: .emailAddress)
+    
+    private lazy var passwordTextField = ParkingTextField(text: "Senha", type: .default, isPassword: true)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,8 @@ class LoginViewController: DefaultViewController {
     private func setupView() {
         view.addSubview(logoImageView)
         view.addSubview(loginLabel)
-        view.addSubview(textfield)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
     }
     
     private func setupConstraints() {
@@ -50,9 +53,14 @@ class LoginViewController: DefaultViewController {
         loginLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 100).isActive = true
         loginLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         
-        textfield.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 10).isActive = true
-        textfield.leadingAnchor.constraint(equalTo: loginLabel.leadingAnchor).isActive = true
-        textfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        textfield.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 10).isActive = true
+        emailTextField.leadingAnchor.constraint(equalTo: loginLabel.leadingAnchor).isActive = true
+        emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        emailTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
+        passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
 }
