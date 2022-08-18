@@ -12,6 +12,8 @@ class RegisterUserViewController: DefaultViewController {
     private lazy var logoImageView = ParkingLogoImageView()
     
     private lazy var messageToClient = ParkingLabel(content: "Crie uma conta para acessar e gerir seu estacionamento.", size: 19, type: .blueMessage)
+    
+    private lazy var nameTextField = ParkingTextField(text: "Nome", type: .default)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,8 @@ class RegisterUserViewController: DefaultViewController {
     private func setupView() {
         view.addSubview(logoImageView)
         view.addSubview(messageToClient)
+        
+        view.addSubview(nameTextField)
     }
     
     private func setupConstraints() {
@@ -34,5 +38,10 @@ class RegisterUserViewController: DefaultViewController {
         messageToClient.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor).isActive = true
         messageToClient.leadingAnchor.constraint(equalTo: logoImageView.trailingAnchor, constant: 10).isActive = true
         messageToClient.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        nameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50).isActive = true
+        nameTextField.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
 }

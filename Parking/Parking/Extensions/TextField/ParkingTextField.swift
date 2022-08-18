@@ -27,7 +27,10 @@ class ParkingTextField: UITextField {
         self.keyboardType = type
         self.isSecureTextEntry = isPassword
         
-        if isPassword { self.rightView = eyeButton }
+        if isPassword {
+            self.rightView = eyeButton
+            self.autocapitalizationType = .none
+        }
     }
     
     override init(frame: CGRect) {
@@ -36,7 +39,7 @@ class ParkingTextField: UITextField {
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
         self.font = UIFont.init(name: "Farah Regular", size: 20.0)
-        self.autocapitalizationType = .none
+        self.autocapitalizationType = .words
         
         self.layer.shadowOpacity = 0.2
         self.layer.shadowRadius = 2.0
