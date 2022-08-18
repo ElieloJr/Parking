@@ -8,15 +8,8 @@
 import UIKit
 
 class LoginViewController: DefaultViewController {
-
-    private lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .blue
-        imageView.image = UIImage(named: "Parking_icon")
-        imageView.layer.cornerRadius = 16
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
+    
+    private lazy var logoImageView = ParkingLogoImageView()
     
     private lazy var loginLabel: UILabel = {
         let label = UILabel()
