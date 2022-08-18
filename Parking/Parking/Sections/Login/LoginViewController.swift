@@ -25,15 +25,7 @@ class LoginViewController: DefaultViewController {
     
     private lazy var entryButton = ParkingButton(content: "Entrar", type: .primary)
     
-    private lazy var messageErrorLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .red
-        label.isHidden = true
-        label.textAlignment = .center
-        label.font = UIFont(name:"Arial Hebrew Bold", size: 17.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var messageErrorLabel = ParkingLabel(content: "", size: 17, type: .errorMessage)
     
     private lazy var leftSeparatorView: UIView = {
         let view = UIView()
@@ -42,16 +34,8 @@ class LoginViewController: DefaultViewController {
         return view
     }()
     
-    private lazy var registerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Cadastre-se".uppercased()
-        label.textColor = Colors.lightGrey
-        label.isHidden = false
-        label.textAlignment = .center
-        label.font = UIFont(name:"Arial Hebrew Bold", size: 19.0)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private lazy var registerLabel = ParkingLabel(content: "Cadastre-se".uppercased(),
+                                                  size: 19, type: .lightGreyMessage)
     
     private lazy var rightSeparatorView: UIView = {
         let view = UIView()
@@ -91,7 +75,7 @@ class LoginViewController: DefaultViewController {
     
     private func setupUI() {
         entryButton.addTarget(self, action: #selector(self.validateEntry), for: .touchUpInside)
-    }
+        registerButton.addTarget(self, action: #selector(self.callRegisterScreen), for: .touchUpInside)    }
     
     private func setupConstraints() {
         logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true
@@ -144,6 +128,12 @@ class LoginViewController: DefaultViewController {
         guard let email = emailTextField.text,
                 let password = passwordTextField.text else { return }
         viewModel.validateData(email, and: password)
+    }
+    
+    @IBAction func callRegisterScreen(_ sender: Any) {
+        let rootController = UINavigationController(rootViewController: RegisterUserViewController())
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
     }
 }
 
