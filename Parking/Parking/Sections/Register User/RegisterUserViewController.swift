@@ -14,6 +14,8 @@ class RegisterUserViewController: DefaultViewController {
     private lazy var messageToClient = ParkingLabel(content: "Crie uma conta para acessar e gerir seu estacionamento.", size: 19, type: .blueMessage)
     
     private lazy var nameTextField = ParkingTextField(text: "Nome", type: .default)
+    
+    private lazy var lastNameTextField = ParkingTextField(text: "Sobrenome", type: .default)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,13 @@ class RegisterUserViewController: DefaultViewController {
         view.addSubview(messageToClient)
         
         view.addSubview(nameTextField)
+        view.addSubview(lastNameTextField)
     }
     
     private func setupConstraints() {
+        let topTextField: CGFloat = 12
+        let heightTextField: CGFloat = 60
+        
         logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 56).isActive = true
         logoImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
         logoImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
@@ -42,6 +48,11 @@ class RegisterUserViewController: DefaultViewController {
         nameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 50).isActive = true
         nameTextField.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor).isActive = true
         nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-        nameTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        lastNameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: topTextField).isActive = true
+        lastNameTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        lastNameTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        lastNameTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
 }
