@@ -8,6 +8,7 @@
   - Arquitetura utilizada: MVVM
   - Persistencia de dados com CoreData e KeyChain
   - ViewCode
+  - CocoaPods
 
 ## Protótipo do Projeto (Figma)
   https://www.figma.com/file/AiIVsT8ukL5HmN6VVWIjaP/Parking?node-id=0%3A1
