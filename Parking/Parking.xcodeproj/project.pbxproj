@@ -23,6 +23,7 @@
 		29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139E28ABEA2800D08480 /* LoginViewModel.swift */; };
 		29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A028ABEC1600D08480 /* DefaultViewController.swift */; };
 		29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A228AC0D9D00D08480 /* ParkingTextField.swift */; };
+		29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28B3028B009AA0025A017 /* ParkingSwitch.swift */; };
 		7BF3931C45C51CF034FFF480 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B999665C39C4D3A169E889 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		29D0139E28ABEA2800D08480 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		29D013A028ABEC1600D08480 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		29D013A228AC0D9D00D08480 /* ParkingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTextField.swift; sourceTree = "<group>"; };
+		29D28B3028B009AA0025A017 /* ParkingSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSwitch.swift; sourceTree = "<group>"; };
 		42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		6655DD0647EDD17415379700 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		B5B999665C39C4D3A169E889 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				2960710A28AD2B8100B70FB3 /* Button */,
 				29C051ED28AEA71500120BEC /* ImageView */,
 				29C051F028AEAA5200120BEC /* Label */,
+				29D28B3228B009B50025A017 /* Switch */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +211,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		29D28B3228B009B50025A017 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				29D28B3028B009AA0025A017 /* ParkingSwitch.swift */,
+			);
+			path = Switch;
+			sourceTree = "<group>";
+		};
 		683B050E7963E4F6E7B91BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,7 +233,6 @@
 				42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */,
 				6655DD0647EDD17415379700 /* Pods-Parking.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -340,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */,
 				29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */,
 				29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */,
 				2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */,

@@ -75,7 +75,8 @@ class LoginViewController: DefaultViewController {
     
     private func setupUI() {
         entryButton.addTarget(self, action: #selector(self.validateEntry), for: .touchUpInside)
-        registerButton.addTarget(self, action: #selector(self.callRegisterScreen), for: .touchUpInside)    }
+        registerButton.addTarget(self, action: #selector(self.callRegisterScreen), for: .touchUpInside)
+    }
     
     private func setupConstraints() {
         logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 130).isActive = true

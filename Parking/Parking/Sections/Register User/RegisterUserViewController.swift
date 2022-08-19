@@ -26,6 +26,10 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var confirmPasswordTextField = ParkingTextField(text: "Confirmar Senha", type: .Password)
     
+    private lazy var faceIdSwitch = ParkingSwitch(stateStart: true)
+    
+    private lazy var faceIdLabel = ParkingLabel(content: "Entrar usando FaceID", size: 18, type: .blueMessage)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,6 +47,8 @@ class RegisterUserViewController: DefaultViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(confirmPasswordTextField)
+        view.addSubview(faceIdSwitch)
+        view.addSubview(faceIdLabel)
     }
     
     private func setupConstraints() {
@@ -87,5 +93,11 @@ class RegisterUserViewController: DefaultViewController {
         confirmPasswordTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         confirmPasswordTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
         confirmPasswordTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        faceIdSwitch.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor, constant: topTextField).isActive = true
+        faceIdSwitch.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        
+        faceIdLabel.centerYAnchor.constraint(equalTo: faceIdSwitch.centerYAnchor, constant: 2).isActive = true
+        faceIdLabel.leadingAnchor.constraint(equalTo: faceIdSwitch.trailingAnchor, constant: 10).isActive = true
     }
 }
