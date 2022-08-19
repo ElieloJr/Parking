@@ -22,6 +22,10 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var emailTextField = ParkingTextField(text: "Email", type: .Email)
     
+    private lazy var passwordTextField = ParkingTextField(text: "Senha", type: .Password)
+    
+    private lazy var confirmPasswordTextField = ParkingTextField(text: "Confirmar Senha", type: .Password)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +41,8 @@ class RegisterUserViewController: DefaultViewController {
         view.addSubview(lastNameTextField)
         view.addSubview(CNPJTextField)
         view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(confirmPasswordTextField)
     }
     
     private func setupConstraints() {
@@ -71,5 +77,15 @@ class RegisterUserViewController: DefaultViewController {
         emailTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         emailTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: topTextField).isActive = true
+        passwordTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        confirmPasswordTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: topTextField).isActive = true
+        confirmPasswordTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        confirmPasswordTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        confirmPasswordTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
 }
