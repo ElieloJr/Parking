@@ -30,6 +30,8 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var faceIdLabel = ParkingLabel(content: "Entrar usando FaceID", size: 18, type: .blueMessage)
     
+    private lazy var messageErrorLabel = ParkingLabel(content: "", size: 17, type: .errorMessage)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +51,8 @@ class RegisterUserViewController: DefaultViewController {
         view.addSubview(confirmPasswordTextField)
         view.addSubview(faceIdSwitch)
         view.addSubview(faceIdLabel)
+        
+        view.addSubview(messageErrorLabel)
     }
     
     private func setupConstraints() {
@@ -99,5 +103,9 @@ class RegisterUserViewController: DefaultViewController {
         
         faceIdLabel.centerYAnchor.constraint(equalTo: faceIdSwitch.centerYAnchor, constant: 2).isActive = true
         faceIdLabel.leadingAnchor.constraint(equalTo: faceIdSwitch.trailingAnchor, constant: 10).isActive = true
+        
+        messageErrorLabel.topAnchor.constraint(equalTo: faceIdSwitch.bottomAnchor, constant: 30).isActive = true
+        messageErrorLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        messageErrorLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
     }
 }
