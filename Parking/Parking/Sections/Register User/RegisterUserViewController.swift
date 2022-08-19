@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TextFieldFormatter
 
 class RegisterUserViewController: DefaultViewController {
     
@@ -13,10 +14,12 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var messageToClient = ParkingLabel(content: "Crie uma conta para acessar e gerir seu estacionamento.", size: 19, type: .blueMessage)
     
-    private lazy var nameTextField = ParkingTextField(text: "Nome", type: .default)
+    private lazy var nameTextField = ParkingTextField(text: "Nome", type: .Normal)
     
-    private lazy var lastNameTextField = ParkingTextField(text: "Sobrenome", type: .default)
-
+    private lazy var lastNameTextField = ParkingTextField(text: "Sobrenome", type: .Normal)
+    
+    private lazy var CNPJTextField = TextFieldFormatter(type: .CNPF)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,6 +33,7 @@ class RegisterUserViewController: DefaultViewController {
         
         view.addSubview(nameTextField)
         view.addSubview(lastNameTextField)
+        view.addSubview(CNPJTextField)
     }
     
     private func setupConstraints() {
@@ -54,5 +58,10 @@ class RegisterUserViewController: DefaultViewController {
         lastNameTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         lastNameTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
         lastNameTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        CNPJTextField.topAnchor.constraint(equalTo: lastNameTextField.bottomAnchor, constant: topTextField).isActive = true
+        CNPJTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        CNPJTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        CNPJTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
 }

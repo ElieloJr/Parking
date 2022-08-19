@@ -19,9 +19,9 @@ class LoginViewController: DefaultViewController {
         return label
     }()
     
-    private lazy var emailTextField = ParkingTextField(text: "Email", type: .emailAddress)
+    private lazy var emailTextField = ParkingTextField(text: "Email", type: .Email)
     
-    private lazy var passwordTextField = ParkingTextField(text: "Senha", type: .default, isPassword: true)
+    private lazy var passwordTextField = ParkingTextField(text: "Senha", type: .Password)
     
     private lazy var entryButton = ParkingButton(content: "Entrar", type: .primary)
     

@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum TypeTextField {
+    case Email
+    case Password
+    case Normal
+}
+
 class ParkingTextField: UITextField {
     
     private lazy var eyeButton: UIButton = {
@@ -19,44 +25,33 @@ class ParkingTextField: UITextField {
         return button
     }()
     
-    public convenience init(text: String, type: UIKeyboardType, isPassword: Bool? = false) {
+    public convenience init(text: String, type: TypeTextField) {
         self.init(frame: .zero)
-        guard let isPassword = isPassword else { return }
-
         self.placeholder = text
-        self.keyboardType = type
-        self.isSecureTextEntry = isPassword
-        
-        if isPassword {
-            self.rightView = eyeButton
-            self.autocapitalizationType = .none
+
+        switch type {
+        case .Email:
+            fieldEmail()
+            
+        case .Password:
+            fieldPassword()
+            
+        case .Normal:
+            fieldNormal()
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 10
-        self.font = UIFont.init(name: "Farah Regular", size: 20.0)
-        self.autocapitalizationType = .words
-        
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowRadius = 2.0
-        self.layer.shadowOffset = CGSize(width: 1, height: 3)
-        self.layer.shadowColor = UIColor.black.cgColor
-        
-        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
-        self.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
-        self.leftViewMode = .always
-        self.rightViewMode = .always
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
+        textFieldLayout()
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // Methods
     
     @IBAction func setSecure(_ sender: Any) {
         if self.isSecureTextEntry {
@@ -66,5 +61,40 @@ class ParkingTextField: UITextField {
             eyeButton.setBackgroundImage(UIImage(systemName: "eye.slash"), for: .normal)
             self.isSecureTextEntry = true
         }
+    }
+    
+    private func fieldEmail() {
+        self.keyboardType = .emailAddress
+        self.autocapitalizationType = .none
+    }
+    
+    private func fieldPassword() {
+        self.rightView = eyeButton
+        self.keyboardType = .default
+        self.isSecureTextEntry = true
+        self.autocapitalizationType = .none
+    }
+    
+    private func fieldNormal() {
+        self.keyboardType = .default
+    }
+    
+    private func textFieldLayout() {
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 10
+        self.font = UIFont.init(name: "Farah Regular", size: 20.0)
+        self.autocapitalizationType = .words
+
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+        self.layer.shadowColor = UIColor.black.cgColor
+
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
+        self.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: self.frame.height))
+        self.leftViewMode = .always
+        self.rightViewMode = .always
+
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
