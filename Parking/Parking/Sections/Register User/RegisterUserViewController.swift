@@ -34,10 +34,13 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var nextButton = ParkingButton(content: "Próximo", type: .primary)
     
+    private lazy var cancelButton = ParkingButton(content: "Cancelar", type: .terceary)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        setupUI()
         setupConstraints()
     }
     
@@ -56,6 +59,11 @@ class RegisterUserViewController: DefaultViewController {
         
         view.addSubview(messageErrorLabel)
         view.addSubview(nextButton)
+        view.addSubview(cancelButton)
+    }
+    
+    private func setupUI() {
+        cancelButton.addTarget(self, action: #selector(self.backScreen), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -115,5 +123,14 @@ class RegisterUserViewController: DefaultViewController {
         nextButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
         nextButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        cancelButton.topAnchor.constraint(equalTo: nextButton.bottomAnchor, constant: 4).isActive = true
+        cancelButton.leadingAnchor.constraint(equalTo: nextButton.leadingAnchor).isActive = true
+        cancelButton.trailingAnchor.constraint(equalTo: nextButton.trailingAnchor).isActive = true
+        cancelButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    @objc func backScreen() {
+        dismiss(animated: true, completion: nil)
     }
 }
