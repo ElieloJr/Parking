@@ -32,6 +32,8 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var messageErrorLabel = ParkingLabel(content: "", size: 17, type: .errorMessage)
     
+    private lazy var nextButton = ParkingButton(content: "Próximo", type: .primary)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +55,7 @@ class RegisterUserViewController: DefaultViewController {
         view.addSubview(faceIdLabel)
         
         view.addSubview(messageErrorLabel)
+        view.addSubview(nextButton)
     }
     
     private func setupConstraints() {
@@ -104,8 +107,13 @@ class RegisterUserViewController: DefaultViewController {
         faceIdLabel.centerYAnchor.constraint(equalTo: faceIdSwitch.centerYAnchor, constant: 2).isActive = true
         faceIdLabel.leadingAnchor.constraint(equalTo: faceIdSwitch.trailingAnchor, constant: 10).isActive = true
         
-        messageErrorLabel.topAnchor.constraint(equalTo: faceIdSwitch.bottomAnchor, constant: 30).isActive = true
+        messageErrorLabel.topAnchor.constraint(equalTo: faceIdSwitch.bottomAnchor, constant: 40).isActive = true
         messageErrorLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
         messageErrorLabel.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        
+        nextButton.topAnchor.constraint(equalTo: messageErrorLabel.bottomAnchor, constant: 4).isActive = true
+        nextButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        nextButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
 }
