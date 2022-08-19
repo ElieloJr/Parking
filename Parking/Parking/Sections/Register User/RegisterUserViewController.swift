@@ -20,6 +20,8 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var CNPJTextField = TextFieldFormatter(type: .CNPF)
     
+    private lazy var emailTextField = ParkingTextField(text: "Email", type: .Email)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,7 @@ class RegisterUserViewController: DefaultViewController {
         view.addSubview(nameTextField)
         view.addSubview(lastNameTextField)
         view.addSubview(CNPJTextField)
+        view.addSubview(emailTextField)
     }
     
     private func setupConstraints() {
@@ -63,5 +66,10 @@ class RegisterUserViewController: DefaultViewController {
         CNPJTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
         CNPJTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
         CNPJTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        emailTextField.topAnchor.constraint(equalTo: CNPJTextField.bottomAnchor, constant: topTextField).isActive = true
+        emailTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        emailTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        emailTextField.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
 }
