@@ -3,12 +3,12 @@
 
 | Status: <b>EM PRODUÇÃO</b> ⌛
 
-  - Linguagem utilizada: Swift (Mobile)
+  - Linguagem utilizada: <b>Swift</b> (Mobile)
   - Apenas para iOS / IPHONE
-  - Arquitetura utilizada: MVVM
-  - Persistencia de dados com CoreData e KeyChain
-  - ViewCode
-  - CocoaPods
+  - Arquitetura utilizada: <b>MVVM</b>
+  - Persistencia de dados com <b>CoreData</b> e <b>KeyChain</b>
+  - Gerenciador de Dependência: <b>CocoaPods</b>
+  - <b>ViewCode</b>
 
 ## Protótipo do Projeto (Figma)
   https://www.figma.com/file/AiIVsT8ukL5HmN6VVWIjaP/Parking?node-id=0%3A1
