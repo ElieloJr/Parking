@@ -26,6 +26,8 @@ class RegisterParkingViewController: DefaultViewController {
     
     private lazy var finishButton = ParkingButton(content: "Finalizar", type: .primary)
     
+    private lazy var backButton = ParkingButton(content: "Voltar", type: .terceary)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,10 +47,13 @@ class RegisterParkingViewController: DefaultViewController {
         view.addSubview(messageError)
         
         view.addSubview(finishButton)
+        view.addSubview(backButton)
     }
     
     private func setupUI() {
         logoParkingOfUser.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectImageLibrary(_:))))
+        finishButton.addTarget(self, action: #selector(self.callNextScreen), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(self.backScreen), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -92,6 +97,11 @@ class RegisterParkingViewController: DefaultViewController {
         finishButton.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
         finishButton.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
         finishButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        backButton.topAnchor.constraint(equalTo: finishButton.bottomAnchor, constant: 4).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
+        backButton.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
+        backButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     @objc func selectImageLibrary(_ sender: UITapGestureRecognizer) {
@@ -100,6 +110,14 @@ class RegisterParkingViewController: DefaultViewController {
         vc.delegate = self
         vc.allowsEditing = true
         present(vc, animated: true)
+    }
+    
+    @objc func callNextScreen() {
+        print("Call LoginViewController")
+    }
+    
+    @objc func backScreen() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
