@@ -24,6 +24,8 @@ class RegisterParkingViewController: DefaultViewController {
     
     private lazy var messageError = ParkingLabel(content: "Preencha todos os campos", size: 19, type: .errorMessage)
     
+    private lazy var finishButton = ParkingButton(content: "Finalizar", type: .primary)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,6 +43,8 @@ class RegisterParkingViewController: DefaultViewController {
         view.addSubview(addictionalPerHour)
         view.addSubview(dayValue)
         view.addSubview(messageError)
+        
+        view.addSubview(finishButton)
     }
     
     private func setupUI() {
@@ -83,6 +87,11 @@ class RegisterParkingViewController: DefaultViewController {
         messageError.topAnchor.constraint(equalTo: dayValue.bottomAnchor, constant: 4).isActive = true
         messageError.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
         messageError.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
+        
+        finishButton.topAnchor.constraint(equalTo: messageError.bottomAnchor, constant: 50).isActive = true
+        finishButton.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
+        finishButton.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
+        finishButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
     }
     
     @objc func selectImageLibrary(_ sender: UITapGestureRecognizer) {
