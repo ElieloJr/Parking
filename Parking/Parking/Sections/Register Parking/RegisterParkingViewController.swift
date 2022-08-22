@@ -16,9 +16,11 @@ class RegisterParkingViewController: DefaultViewController {
     
     private lazy var numVacancies = ParkingTextField(text: "Número de Vagas", type: .Number)
     
-    private lazy var oneHourValue = TextFieldFormatter(placeholder: "Preço por Hora", type: .Money)
+    private lazy var oneHourValue = TextFieldFormatter(placeholder: "Preço por Hora", type: .Money2)
     
-    private lazy var addictionalPerHour = TextFieldFormatter(placeholder: "Adicional por Hora", type: .Money)
+    private lazy var addictionalPerHour = TextFieldFormatter(placeholder: "Adicional por Hora", type: .Money1)
+    
+    private lazy var dayValue = TextFieldFormatter(placeholder: "Preço Diária", type: .Money2)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,7 @@ class RegisterParkingViewController: DefaultViewController {
         view.addSubview(numVacancies)
         view.addSubview(oneHourValue)
         view.addSubview(addictionalPerHour)
+        view.addSubview(dayValue)
     }
     
     private func setupUI() {
@@ -68,6 +71,11 @@ class RegisterParkingViewController: DefaultViewController {
         addictionalPerHour.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
         addictionalPerHour.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
         addictionalPerHour.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        dayValue.topAnchor.constraint(equalTo: addictionalPerHour.bottomAnchor, constant: topTextField).isActive = true
+        dayValue.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
+        dayValue.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
+        dayValue.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
     
     @objc func selectImageLibrary(_ sender: UITapGestureRecognizer) {

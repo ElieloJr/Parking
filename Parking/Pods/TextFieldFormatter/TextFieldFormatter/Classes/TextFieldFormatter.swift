@@ -1,6 +1,8 @@
+
 public enum TypeMask {
     case CNPF
-    case Money
+    case Money1
+    case Money2
 }
 
 public class TextFieldFormatter: UITextField {
@@ -42,8 +44,12 @@ public class TextFieldFormatter: UITextField {
         switch type {
         case .CNPF:
             maskCNPJ()
-        case .Money:
-            maskMoney(placeholder: placeholder)
+        case .Money1:
+            self.placeholder = placeholder
+            self.pattern = "R$ NN,NN"
+        case .Money2:
+            self.placeholder = placeholder
+            self.pattern = "R$ NNN,NN"
         }
     }
     
@@ -83,6 +89,7 @@ public class TextFieldFormatter: UITextField {
         self.layer.cornerRadius = 10
         self.keyboardType = .numberPad
         self.autocapitalizationType = .words
+        self.font = UIFont.init(name: "Arial", size: 20.0)
         
         self.layer.shadowOpacity = 0.2
         self.layer.shadowRadius = 2.0
@@ -100,13 +107,6 @@ public class TextFieldFormatter: UITextField {
     private func maskCNPJ() {
         self.placeholder = "CNPJ"
         self.pattern = "NN.NNN.NNN/NNNN-nn"
-        self.font = UIFont.init(name: "Arial", size: 20.0)
-    }
-    
-    private func maskMoney(placeholder: String) {
-        self.placeholder = placeholder
-        self.pattern = "R$ NN,NN"
-        self.font = UIFont.init(name: "Arial", size: 20.0)
     }
     
     // MARK: - Observer Methods
