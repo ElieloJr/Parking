@@ -12,7 +12,7 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var logoImageView = ParkingLogoImageView()
     
-    private lazy var messageToClient = ParkingLabel(content: "Crie uma conta para acessar e gerir seu estacionamento.", size: 19, type: .blueMessage)
+    private lazy var messageToClient = ParkingLabel(content: "Crie uma conta para acessar e gerir seu estacionamento.", size: 19, type: .blueLeftMessage)
     
     private lazy var nameTextField = ParkingTextField(text: "Nome", type: .Normal)
     
@@ -28,7 +28,7 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var faceIdSwitch = ParkingSwitch(stateStart: true)
     
-    private lazy var faceIdLabel = ParkingLabel(content: "Entrar usando FaceID", size: 18, type: .blueMessage)
+    private lazy var faceIdLabel = ParkingLabel(content: "Entrar usando FaceID", size: 18, type: .blueLeftMessage)
     
     private lazy var messageErrorLabel = ParkingLabel(content: "", size: 17, type: .errorMessage)
     
@@ -136,12 +136,13 @@ class RegisterUserViewController: DefaultViewController {
     }
     
     @objc func callNextScreen() {
-        viewModel.validateFields(name: nameTextField,
-                                 lastName: lastNameTextField,
-                                 cnpj: CNPJTextField,
-                                 email: emailTextField,
-                                 password: passwordTextField,
-                                 confirmPassword: confirmPasswordTextField)
+        callRegisterParking()
+//        viewModel.validateFields(name: nameTextField,
+//                                 lastName: lastNameTextField,
+//                                 cnpj: CNPJTextField,
+//                                 email: emailTextField,
+//                                 password: passwordTextField,
+//                                 confirmPassword: confirmPasswordTextField)
     }
     
     @objc func backScreen() {
@@ -167,5 +168,8 @@ extension RegisterUserViewController: RegisterUserViewDelegate {
     func callRegisterParking() {
         // TODO: Implement call to Register Parking
         print("|Show --> RegisterParkingViewController")
+        let rootController = UINavigationController(rootViewController: RegisterParkingViewController())
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
     }
 }
