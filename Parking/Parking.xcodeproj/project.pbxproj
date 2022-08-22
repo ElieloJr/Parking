@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */; };
 		29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */; };
+		29466C1928B3F04300E95D5C /* ParkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1828B3F04300E95D5C /* ParkingView.swift */; };
 		2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960710628AD28B300B70FB3 /* ParkingButton.swift */; };
 		2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960710C28AD2BD200B70FB3 /* Colors.swift */; };
 		29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051E928AEA63600120BEC /* RegisterUserViewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewController.swift; sourceTree = "<group>"; };
 		29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewModel.swift; sourceTree = "<group>"; };
+		29466C1828B3F04300E95D5C /* ParkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingView.swift; sourceTree = "<group>"; };
 		2960710628AD28B300B70FB3 /* ParkingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingButton.swift; sourceTree = "<group>"; };
 		2960710C28AD2BD200B70FB3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		29C051E928AEA63600120BEC /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 				29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */,
 			);
 			path = "Register Parking";
+			sourceTree = "<group>";
+		};
+		29466C1728B3EFFB00E95D5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				29466C1828B3F04300E95D5C /* ParkingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2960710828AD2B6600B70FB3 /* ViewController */ = {
@@ -176,6 +186,7 @@
 			children = (
 				2960710B28AD2BAA00B70FB3 /* Colors */,
 				2960710828AD2B6600B70FB3 /* ViewController */,
+				29466C1728B3EFFB00E95D5C /* View */,
 				2960710928AD2B7100B70FB3 /* TextField */,
 				2960710A28AD2B8100B70FB3 /* Button */,
 				29C051ED28AEA71500120BEC /* ImageView */,
@@ -367,6 +378,7 @@
 				29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */,
 				29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */,
 				29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */,
+				29466C1928B3F04300E95D5C /* ParkingView.swift in Sources */,
 				2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */,
 				29D0138428ABE34500D08480 /* ViewController.swift in Sources */,
 				29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */,
