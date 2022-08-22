@@ -22,6 +22,8 @@ class RegisterParkingViewController: DefaultViewController {
     
     private lazy var dayValue = TextFieldFormatter(placeholder: "Preço Diária", type: .Money2)
     
+    private lazy var messageError = ParkingLabel(content: "Preencha todos os campos", size: 19, type: .errorMessage)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,7 @@ class RegisterParkingViewController: DefaultViewController {
         view.addSubview(oneHourValue)
         view.addSubview(addictionalPerHour)
         view.addSubview(dayValue)
+        view.addSubview(messageError)
     }
     
     private func setupUI() {
@@ -76,6 +79,10 @@ class RegisterParkingViewController: DefaultViewController {
         dayValue.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
         dayValue.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
         dayValue.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        messageError.topAnchor.constraint(equalTo: dayValue.bottomAnchor, constant: 4).isActive = true
+        messageError.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
+        messageError.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
     }
     
     @objc func selectImageLibrary(_ sender: UITapGestureRecognizer) {
