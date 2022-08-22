@@ -18,6 +18,8 @@ class RegisterParkingViewController: DefaultViewController {
     
     private lazy var oneHourValue = TextFieldFormatter(placeholder: "Preço por Hora", type: .Money)
     
+    private lazy var addictionalPerHour = TextFieldFormatter(placeholder: "Adicional por Hora", type: .Money)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,6 +34,7 @@ class RegisterParkingViewController: DefaultViewController {
         
         view.addSubview(numVacancies)
         view.addSubview(oneHourValue)
+        view.addSubview(addictionalPerHour)
     }
     
     private func setupUI() {
@@ -60,6 +63,11 @@ class RegisterParkingViewController: DefaultViewController {
         oneHourValue.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
         oneHourValue.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
         oneHourValue.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        addictionalPerHour.topAnchor.constraint(equalTo: oneHourValue.bottomAnchor, constant: topTextField).isActive = true
+        addictionalPerHour.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
+        addictionalPerHour.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
+        addictionalPerHour.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
     
     @objc func selectImageLibrary(_ sender: UITapGestureRecognizer) {

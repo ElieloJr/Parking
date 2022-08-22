@@ -105,7 +105,7 @@ public class TextFieldFormatter: UITextField {
     
     private func maskMoney(placeholder: String) {
         self.placeholder = placeholder
-        self.pattern = "R$ nNN,NN"
+        self.pattern = "R$ NN,NN"
         self.font = UIFont.init(name: "Arial", size: 20.0)
     }
     
