@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TextFieldFormatter
 
 class RegisterParkingViewController: DefaultViewController {
 
@@ -14,6 +15,8 @@ class RegisterParkingViewController: DefaultViewController {
     private lazy var logoParkingOfUser = ParkingView()
     
     private lazy var numVacancies = ParkingTextField(text: "Número de Vagas", type: .Number)
+    
+    private lazy var oneHourValue = TextFieldFormatter(placeholder: "Preço por Hora", type: .Money)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class RegisterParkingViewController: DefaultViewController {
         view.addSubview(logoParkingOfUser)
         
         view.addSubview(numVacancies)
+        view.addSubview(oneHourValue)
     }
     
     private func setupUI() {
@@ -51,6 +55,11 @@ class RegisterParkingViewController: DefaultViewController {
         numVacancies.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
         numVacancies.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
         numVacancies.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
+        
+        oneHourValue.topAnchor.constraint(equalTo: numVacancies.bottomAnchor, constant: topTextField).isActive = true
+        oneHourValue.leadingAnchor.constraint(equalTo: finishMessageLabel.leadingAnchor).isActive = true
+        oneHourValue.trailingAnchor.constraint(equalTo: finishMessageLabel.trailingAnchor).isActive = true
+        oneHourValue.heightAnchor.constraint(equalToConstant: heightTextField).isActive = true
     }
     
     @objc func selectImageLibrary(_ sender: UITapGestureRecognizer) {

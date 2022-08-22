@@ -1,5 +1,6 @@
 public enum TypeMask {
     case CNPF
+    case Money
 }
 
 public class TextFieldFormatter: UITextField {
@@ -35,12 +36,14 @@ public class TextFieldFormatter: UITextField {
     private var oldText: String = ""
     
     // MARK: - Init
-    public convenience init(type: TypeMask) {
+    public convenience init(placeholder: String, type: TypeMask) {
         self.init(frame: .zero)
         
         switch type {
         case .CNPF:
             maskCNPJ()
+        case .Money:
+            maskMoney(placeholder: placeholder)
         }
     }
     
@@ -78,6 +81,7 @@ public class TextFieldFormatter: UITextField {
     private func defaultLayout() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
+        self.keyboardType = .numberPad
         self.autocapitalizationType = .words
         
         self.layer.shadowOpacity = 0.2
@@ -94,9 +98,14 @@ public class TextFieldFormatter: UITextField {
     }
     
     private func maskCNPJ() {
-        self.keyboardType = .numberPad
         self.placeholder = "CNPJ"
         self.pattern = "NN.NNN.NNN/NNNN-nn"
+        self.font = UIFont.init(name: "Arial", size: 20.0)
+    }
+    
+    private func maskMoney(placeholder: String) {
+        self.placeholder = placeholder
+        self.pattern = "R$ nNN,NN"
         self.font = UIFont.init(name: "Arial", size: 20.0)
     }
     
