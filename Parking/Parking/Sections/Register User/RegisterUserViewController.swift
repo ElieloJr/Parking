@@ -18,7 +18,7 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var lastNameTextField = ParkingTextField(text: "Sobrenome", type: .Normal)
     
-    private lazy var CNPJTextField = TextFieldFormatter(placeholder: "", type: .CNPF)
+    private lazy var CNPJTextField = TextFieldFormatter(placeholder: "", type: .CNPJ)
     
     private lazy var emailTextField = ParkingTextField(text: "Email", type: .Email)
     
@@ -136,13 +136,12 @@ class RegisterUserViewController: DefaultViewController {
     }
     
     @objc func callNextScreen() {
-        callRegisterParking()
-//        viewModel.validateFields(name: nameTextField,
-//                                 lastName: lastNameTextField,
-//                                 cnpj: CNPJTextField,
-//                                 email: emailTextField,
-//                                 password: passwordTextField,
-//                                 confirmPassword: confirmPasswordTextField)
+        viewModel.validateFields(name: nameTextField,
+                                 lastName: lastNameTextField,
+                                 cnpj: CNPJTextField,
+                                 email: emailTextField,
+                                 password: passwordTextField,
+                                 confirmPassword: confirmPasswordTextField)
     }
     
     @objc func backScreen() {
@@ -166,8 +165,6 @@ extension RegisterUserViewController: RegisterUserViewDelegate {
     }
     
     func callRegisterParking() {
-        // TODO: Implement call to Register Parking
-        print("|Show --> RegisterParkingViewController")
         let rootController = UINavigationController(rootViewController: RegisterParkingViewController())
         rootController.modalPresentationStyle = .fullScreen
         present(rootController, animated: true)

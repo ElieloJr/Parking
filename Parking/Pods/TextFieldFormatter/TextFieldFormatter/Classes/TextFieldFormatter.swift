@@ -1,6 +1,6 @@
 
 public enum TypeMask {
-    case CNPF
+    case CNPJ
     case Money1
     case Money2
 }
@@ -42,7 +42,7 @@ public class TextFieldFormatter: UITextField {
         self.init(frame: .zero)
         
         switch type {
-        case .CNPF:
+        case .CNPJ:
             maskCNPJ()
         case .Money1:
             self.placeholder = placeholder

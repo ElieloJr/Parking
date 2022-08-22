@@ -28,6 +28,8 @@ class RegisterParkingViewController: DefaultViewController {
     
     private lazy var backButton = ParkingButton(content: "Voltar", type: .terceary)
     
+    lazy var viewModel = RegisterParkingViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,7 @@ class RegisterParkingViewController: DefaultViewController {
     }
     
     private func setupView() {
+        viewModel.delegate = self
         view.addSubview(finishMessageLabel)
         view.addSubview(logoParkingOfUser)
         
@@ -114,10 +117,31 @@ class RegisterParkingViewController: DefaultViewController {
     
     @objc func callNextScreen() {
         print("Call LoginViewController")
+        viewModel.validateFields(numVacancies: numVacancies, oneHourValue: oneHourValue, addictionalPerHour: addictionalPerHour, dayValue: dayValue)
     }
     
     @objc func backScreen() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RegisterParkingViewController: RegisterParkingViewDelegate {
+    func showAlertIn(_ field: UITextField) {
+        field.layer.borderColor = UIColor.red.cgColor
+        field.layer.borderWidth = 2
+    }
+    
+    func setToDefault() {
+        numVacancies.layer.borderWidth = 0
+        oneHourValue.layer.borderWidth = 0
+        addictionalPerHour.layer.borderWidth = 0
+        dayValue.layer.borderWidth = 0
+    }
+    
+    func callLogin() {
+        let rootController = UINavigationController(rootViewController: LoginViewController())
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
     }
 }
 
