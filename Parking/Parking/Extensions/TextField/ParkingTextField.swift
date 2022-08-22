@@ -11,6 +11,7 @@ enum TypeTextField {
     case Email
     case Password
     case Normal
+    case Number
 }
 
 class ParkingTextField: UITextField {
@@ -38,6 +39,8 @@ class ParkingTextField: UITextField {
             
         case .Normal:
             fieldNormal()
+        case .Number:
+            fieldNumber()
         }
     }
 
@@ -77,6 +80,10 @@ class ParkingTextField: UITextField {
     
     private func fieldNormal() {
         self.keyboardType = .default
+    }
+    
+    private func fieldNumber() {
+        self.keyboardType = .numberPad
     }
     
     private func textFieldLayout() {
