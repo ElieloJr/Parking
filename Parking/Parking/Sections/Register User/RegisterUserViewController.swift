@@ -36,6 +36,8 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var cancelButton = ParkingButton(content: "Cancelar", type: .terceary)
     
+    let viewModel = RegisterUserViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +47,8 @@ class RegisterUserViewController: DefaultViewController {
     }
     
     private func setupView() {
+        viewModel.delegate = self
+        
         view.addSubview(logoImageView)
         view.addSubview(messageToClient)
         
@@ -63,6 +67,7 @@ class RegisterUserViewController: DefaultViewController {
     }
     
     private func setupUI() {
+        nextButton.addTarget(self, action: #selector(self.callNextScreen), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(self.backScreen), for: .touchUpInside)
     }
     
@@ -130,7 +135,37 @@ class RegisterUserViewController: DefaultViewController {
         cancelButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
+    @objc func callNextScreen() {
+        viewModel.validateFields(name: nameTextField,
+                                 lastName: lastNameTextField,
+                                 cnpj: CNPJTextField,
+                                 email: emailTextField,
+                                 password: passwordTextField,
+                                 confirmPassword: confirmPasswordTextField)
+    }
+    
     @objc func backScreen() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RegisterUserViewController: RegisterUserViewDelegate {
+    func setToDefault() {
+        nameTextField.layer.borderWidth = 0
+        lastNameTextField.layer.borderWidth = 0
+        CNPJTextField.layer.borderWidth = 0
+        emailTextField.layer.borderWidth = 0
+        passwordTextField.layer.borderWidth = 0
+        confirmPasswordTextField.layer.borderWidth = 0
+    }
+    
+    func showAlertIn(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderWidth = 2
+    }
+    
+    func callRegisterParking() {
+        // TODO: Implement call to Register Parking
+        print("|Show --> RegisterParkingViewController")
     }
 }

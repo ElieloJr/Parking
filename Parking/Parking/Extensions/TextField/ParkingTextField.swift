@@ -82,7 +82,7 @@ class ParkingTextField: UITextField {
     private func textFieldLayout() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
-        self.font = UIFont.init(name: "Farah Regular", size: 20.0)
+        self.font = UIFont.init(name: "Arial", size: 20.0)
         self.autocapitalizationType = .words
 
         self.layer.shadowOpacity = 0.2
