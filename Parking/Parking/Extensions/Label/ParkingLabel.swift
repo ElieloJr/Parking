@@ -12,6 +12,7 @@ enum typeLabel {
     case blueLeftMessage
     case blueCenterMessage
     case lightGreyMessage
+    case darkGreyMessage
 }
 
 class ParkingLabel: UILabel {
@@ -35,7 +36,10 @@ class ParkingLabel: UILabel {
         case .lightGreyMessage:
             self.textColor = Colors.lightGrey
             self.textAlignment = .center
-        
+        case .darkGreyMessage:
+            self.textColor = Colors.darkGrey
+            self.textAlignment = .left
+            self.numberOfLines = 6
         }
         
         self.text = content

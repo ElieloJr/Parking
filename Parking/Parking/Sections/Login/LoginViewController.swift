@@ -129,6 +129,7 @@ class LoginViewController: DefaultViewController {
         guard let email = emailTextField.text,
                 let password = passwordTextField.text else { return }
         viewModel.validateData(email, and: password)
+        authenticateSuccess()
     }
     
     @IBAction func callRegisterScreen(_ sender: Any) {
@@ -141,6 +142,9 @@ class LoginViewController: DefaultViewController {
 extension LoginViewController: LoginViewDelegate {
     func authenticateSuccess() {
         messageErrorLabel.isHidden = true
+        let rootController = UINavigationController(rootViewController: HomeViewController())
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
     }
     func authenticateFailed(messageError: String) {
         messageErrorLabel.text = messageError
