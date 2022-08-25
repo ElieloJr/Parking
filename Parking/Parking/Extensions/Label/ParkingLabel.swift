@@ -16,7 +16,9 @@ enum typeLabel {
 }
 
 class ParkingLabel: UILabel {
-
+    
+    private var fontName: String = "Arial Hebrew Bold"
+    
     public convenience init(content: String, size: Int, type: typeLabel) {
         self.init(frame: .zero)
         
@@ -37,13 +39,14 @@ class ParkingLabel: UILabel {
             self.textColor = Colors.lightGrey
             self.textAlignment = .center
         case .darkGreyMessage:
+            self.font = UIFont(name:"Arial", size: CGFloat(size))
             self.textColor = Colors.darkGrey
             self.textAlignment = .left
             self.numberOfLines = 6
         }
         
         self.text = content
-        self.font = UIFont(name:"Arial Hebrew Bold", size: CGFloat(size))
+        self.font = UIFont(name:fontName, size: CGFloat(size))
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
