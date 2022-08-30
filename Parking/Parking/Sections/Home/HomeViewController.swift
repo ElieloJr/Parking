@@ -17,7 +17,6 @@ class HomeViewController: DefaultViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
-//        layout.minimumInteritemSpacing = 1
         layout.itemSize = CGSize(width: (view.frame.width/2.4), height: (view.frame.width/3)-10)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -40,6 +39,22 @@ class HomeViewController: DefaultViewController {
         return collectionView
     }()
     
+    private lazy var messageView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 40
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let messageLabel = ParkingLabel(content: "Escolha uma vaga para checkin ou checkout",
+                                        size: 17, type: .darkGreyMessage)
+        view.addSubview(messageLabel)
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+            messageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        return view
+    }()
+    
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
@@ -53,6 +68,7 @@ class HomeViewController: DefaultViewController {
         view.addSubview(welcomeUser)
         view.addSubview(statusParking)
         view.addSubview(parkingCollectionView)
+        view.addSubview(messageView)
     }
     
     private func setupConstraints() {
@@ -70,7 +86,12 @@ class HomeViewController: DefaultViewController {
             parkingCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             parkingCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             parkingCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height-20),
-            parkingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            parkingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            messageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            messageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            messageView.heightAnchor.constraint(equalToConstant: 50),
+            messageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
