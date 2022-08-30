@@ -11,7 +11,21 @@ class RegisterVehicleViewController: DefaultViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupView()
+        setupUI()
+        setupConstraints()
     }
     
+    private func setupView() {
+        title = "Cadastrar Veículo"
+    }
+    
+    private func setupUI() {
+        
+    }
+    
+    private func setupConstraints() {
+        
+    }
 }

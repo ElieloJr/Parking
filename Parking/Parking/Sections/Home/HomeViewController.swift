@@ -121,7 +121,13 @@ class HomeViewController: DefaultViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate { }
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let registerVehicle = RegisterVehicleViewController()
+        let rootDetailController = UINavigationController(rootViewController: registerVehicle)
+        present(rootDetailController, animated: true)
+    }
+}
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
