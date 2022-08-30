@@ -13,6 +13,7 @@ enum typeLabel {
     case blueCenterMessage
     case lightGreyMessage
     case darkGreyMessage
+    case whiteMessage
 }
 
 class ParkingLabel: UILabel {
@@ -27,26 +28,32 @@ class ParkingLabel: UILabel {
             self.isHidden = true
             self.textColor = .red
             self.textAlignment = .center
+            self.font = UIFont(name:fontName, size: CGFloat(size))
         case .blueLeftMessage:
             self.textColor = Colors.blue
             self.textAlignment = .left
             self.numberOfLines = 6
+            self.font = UIFont(name:fontName, size: CGFloat(size))
         case .blueCenterMessage:
             self.textColor = Colors.blue
             self.textAlignment = .center
             self.numberOfLines = 6
+            self.font = UIFont(name:fontName, size: CGFloat(size))
         case .lightGreyMessage:
             self.textColor = Colors.lightGrey
             self.textAlignment = .center
+            self.font = UIFont(name:fontName, size: CGFloat(size))
         case .darkGreyMessage:
-            self.font = UIFont(name:"Arial", size: CGFloat(size))
+            self.font = UIFont(name:fontName, size: CGFloat(size))
             self.textColor = Colors.darkGrey
             self.textAlignment = .left
             self.numberOfLines = 6
+        case .whiteMessage:
+            self.font = UIFont(name:"Arial", size: CGFloat(size))
+            self.textColor = .white
         }
         
         self.text = content
-        self.font = UIFont(name:fontName, size: CGFloat(size))
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     

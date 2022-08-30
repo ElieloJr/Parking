@@ -31,10 +31,7 @@ class ParkingStatusView: UIView {
     public convenience init() {
         self.init(frame: .zero)
         
-        self.layer.cornerRadius = 20
         self.backgroundColor = .white
-        self.layer.masksToBounds = false
-        self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 
@@ -54,10 +51,10 @@ class ParkingStatusView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            vacanciesFilled.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vacanciesFilled.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
             vacanciesFilled.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             
-            vacanciesFilledValue.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vacanciesFilledValue.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor, constant: -1),
             vacanciesFilledValue.leadingAnchor.constraint(equalTo: vacanciesFilled.trailingAnchor, constant: 6),
             
             separatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -65,10 +62,10 @@ class ParkingStatusView: UIView {
             separatorView.widthAnchor.constraint(equalToConstant: 2),
             separatorView.heightAnchor.constraint(equalToConstant: 20),
             
-            vacanciesAvailable.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vacanciesAvailable.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor),
             vacanciesAvailable.leadingAnchor.constraint(equalTo: separatorView.trailingAnchor, constant: 30),
             
-            vacanciesAvailableValue.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vacanciesAvailableValue.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor, constant: -1),
             vacanciesAvailableValue.leadingAnchor.constraint(equalTo: vacanciesAvailable.trailingAnchor, constant: 6)
         ])
     }

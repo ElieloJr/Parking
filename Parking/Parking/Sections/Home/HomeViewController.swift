@@ -16,21 +16,31 @@ class HomeViewController: DefaultViewController {
     private lazy var parkingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 1
-        layout.minimumInteritemSpacing = 1
-        layout.itemSize = CGSize(width: (view.frame.width/3) - 1, height: (view.frame.width/3)-10)
+        layout.minimumLineSpacing = 0
+//        layout.minimumInteritemSpacing = 1
+        layout.itemSize = CGSize(width: (view.frame.width/2.4), height: (view.frame.width/3)-10)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        collectionVIew.register(SmallPostCollectionViewCell.self, forCellWithReuseIdentifier: SmallPostCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(VacancyCollectionViewCell.self, forCellWithReuseIdentifier: VacancyCollectionViewCell.identifier)
         collectionView.backgroundColor = Colors.darkGrey
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let faixa = ParkingSeparatorView(color: .white)
+        
+        collectionView.addSubview(faixa)
+        
+        faixa.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
+        faixa.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
+        faixa.widthAnchor.constraint(equalToConstant: 2).isActive = true
+        faixa.heightAnchor.constraint(equalToConstant: ((view.frame.width/3)-10)*6).isActive = true
+        
         return collectionView
     }()
     
-    override func viewDidAppear(_ animated: Bool) {
-        statusParking.addShadow()
-    }
+    private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +64,9 @@ class HomeViewController: DefaultViewController {
             statusParking.topAnchor.constraint(equalTo: welcomeUser.bottomAnchor, constant: 70),
             statusParking.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             statusParking.widthAnchor.constraint(equalToConstant: view.frame.width),
-            statusParking.heightAnchor.constraint(equalToConstant: 50),
+            statusParking.heightAnchor.constraint(equalToConstant: 40),
             
-            parkingCollectionView.topAnchor.constraint(equalTo: statusParking.bottomAnchor, constant: -10),
+            parkingCollectionView.topAnchor.constraint(equalTo: statusParking.bottomAnchor),
             parkingCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             parkingCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             parkingCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height-20),
@@ -71,12 +81,14 @@ extension HomeViewController: UICollectionViewDelegate {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return viewModel.parking.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
-        cell.backgroundColor = .blue
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VacancyCollectionViewCell.identifier, for: indexPath) as? VacancyCollectionViewCell
+        else { return UICollectionViewCell() }
+        let index = indexPath.row
+        cell.configureCell(position: index, vacancy: viewModel.parking[index])
         return cell
     }
 }

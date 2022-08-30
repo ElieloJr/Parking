@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ParkingView: UIView {
+class ParkingChooseLogoView: UIView {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)

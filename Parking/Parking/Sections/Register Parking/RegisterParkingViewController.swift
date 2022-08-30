@@ -12,7 +12,7 @@ class RegisterParkingViewController: DefaultViewController {
 
     private lazy var finishMessageLabel = ParkingLabel(content: "Para concluir o cadastro conte nos mais sobre o seu Estacionamento", size: 20, type: .blueCenterMessage)
     
-    private lazy var logoParkingOfUser = ParkingView()
+    private lazy var logoParkingOfUser = ParkingChooseLogoView()
     
     private lazy var numVacancies = ParkingTextField(text: "Número de Vagas", type: .Number)
     
