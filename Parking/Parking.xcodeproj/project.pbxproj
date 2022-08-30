@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		292FE93A28BE43C6001107C7 /* VacancyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE93928BE43C6001107C7 /* VacancyDetails.swift */; };
+		292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE94028BE5903001107C7 /* ParkingMenuView.swift */; };
 		2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */; };
 		2940A87928B8FD9200989FF8 /* ParkingSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */; };
 		29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		292FE93928BE43C6001107C7 /* VacancyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyDetails.swift; sourceTree = "<group>"; };
+		292FE94028BE5903001107C7 /* ParkingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMenuView.swift; sourceTree = "<group>"; };
 		2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCollectionViewCell.swift; sourceTree = "<group>"; };
 		2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSeparatorView.swift; sourceTree = "<group>"; };
 		29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		292FE93B28BE584A001107C7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		292FE93C28BE585F001107C7 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				29825D4F28B66BD600D5C828 /* ParkingStatusView.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		292FE93D28BE5872001107C7 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
+		292FE93E28BE5893001107C7 /* ChooseLogo */ = {
+			isa = PBXGroup;
+			children = (
+				29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */,
+			);
+			path = ChooseLogo;
+			sourceTree = "<group>";
+		};
+		292FE93F28BE58DA001107C7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				292FE94028BE5903001107C7 /* ParkingMenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		2940A87528B8F83900989FF8 /* VacancyViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +146,11 @@
 		29466C1728B3EFFB00E95D5C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */,
-				295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */,
-				29825D4F28B66BD600D5C828 /* ParkingStatusView.swift */,
-				2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */,
+				292FE93B28BE584A001107C7 /* Header */,
+				292FE93C28BE585F001107C7 /* Status */,
+				292FE93F28BE58DA001107C7 /* Menu */,
+				292FE93E28BE5893001107C7 /* ChooseLogo */,
+				292FE93D28BE5872001107C7 /* Separator */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +473,7 @@
 				29C051F228AEAA7700120BEC /* ParkingLabel.swift in Sources */,
 				2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */,
 				29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */,
+				292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */,
 				2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */,
 				29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */,
 				29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */,

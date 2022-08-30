@@ -13,6 +13,8 @@ class HomeViewController: DefaultViewController {
     
     private lazy var statusParking = ParkingStatusView()
     
+    private lazy var menu = ParkingMenuView()
+    
     private lazy var parkingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -39,7 +41,7 @@ class HomeViewController: DefaultViewController {
         return collectionView
     }()
     
-    private lazy var messageView: UIView = {
+    private lazy var bottomMessageView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 40
@@ -61,6 +63,7 @@ class HomeViewController: DefaultViewController {
         super.viewDidLoad()
         
         setupView()
+        setupUI()
         setupConstraints()
     }
     
@@ -68,7 +71,15 @@ class HomeViewController: DefaultViewController {
         view.addSubview(welcomeUser)
         view.addSubview(statusParking)
         view.addSubview(parkingCollectionView)
-        view.addSubview(messageView)
+        view.addSubview(menu)
+        view.addSubview(bottomMessageView)
+    }
+    
+    private func setupUI() {
+        navigationController?.navigationBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOrHideMenu(_:))))
+        statusParking.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOrHideMenu(_:))))
+
+        menu.exitButton.addTarget(self, action: #selector(self.exitScreen), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -82,23 +93,35 @@ class HomeViewController: DefaultViewController {
             statusParking.widthAnchor.constraint(equalToConstant: view.frame.width),
             statusParking.heightAnchor.constraint(equalToConstant: 40),
             
+            menu.topAnchor.constraint(equalTo: statusParking.bottomAnchor),
+            menu.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            menu.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            menu.heightAnchor.constraint(equalToConstant: 170),
+            
             parkingCollectionView.topAnchor.constraint(equalTo: statusParking.bottomAnchor),
             parkingCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             parkingCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             parkingCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height-20),
             parkingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            messageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            messageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            messageView.heightAnchor.constraint(equalToConstant: 50),
-            messageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            bottomMessageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomMessageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomMessageView.heightAnchor.constraint(equalToConstant: 50),
+            bottomMessageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    @objc func showOrHideMenu(_ sender: UITapGestureRecognizer) {
+        if menu.isHidden { menu.isHidden = false }
+        else { menu.isHidden = true }
+    }
+    
+    @objc func exitScreen() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate {
-    
-}
+extension HomeViewController: UICollectionViewDelegate { }
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
