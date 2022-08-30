@@ -11,6 +11,7 @@ enum typeButton {
     case primary
     case secondary
     case terceary
+    case fourth
 }
 
 class ParkingButton: UIButton {
@@ -21,13 +22,16 @@ class ParkingButton: UIButton {
         
         switch type {
         case .primary:
-            primaryButton(content)
+            primaryButton()
             
         case .secondary:
-            secondaryButton(content)
+            secondaryButton()
             
         case .terceary:
-            tercearyButton(content)
+            tercearyButton()
+            
+        case .fourth:
+            fourthButton()
         }
     }
     
@@ -39,21 +43,27 @@ class ParkingButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func primaryButton(_ text: String) {
+    private func primaryButton() {
         self.backgroundColor = Colors.blue
         self.setTitleColor(.white, for: .normal)
     }
     
-    private func secondaryButton(_ text: String) {
+    private func secondaryButton() {
         self.backgroundColor = .white
         self.setTitleColor(Colors.lightGrey, for: .normal)
         self.layer.borderColor = Colors.lightGrey.cgColor
         self.layer.borderWidth = 2
     }
     
-    private func tercearyButton(_ text: String) {
+    private func tercearyButton() {
         self.backgroundColor = .clear
         self.setTitleColor(Colors.blue, for: .normal)
+    }
+    
+    private func fourthButton() {
+        self.backgroundColor = Colors.lightGrey
+        self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        self.setTitleColor(Colors.darkGrey, for: .normal)
     }
     
     required init?(coder: NSCoder) {
