@@ -255,7 +255,7 @@
 		29D0137E28ABE34500D08480 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
-				29D0139628ABE92900D08480 /* Extensions */,
+				29D0139628ABE92900D08480 /* ParkingKit */,
 				29D0139828ABE94F00D08480 /* Repository */,
 				29D0139728ABE93700D08480 /* Model */,
 				29D0139928ABE95A00D08480 /* Sections */,
@@ -271,7 +271,7 @@
 			path = Parking;
 			sourceTree = "<group>";
 		};
-		29D0139628ABE92900D08480 /* Extensions */ = {
+		29D0139628ABE92900D08480 /* ParkingKit */ = {
 			isa = PBXGroup;
 			children = (
 				2960710B28AD2BAA00B70FB3 /* Colors */,
@@ -283,7 +283,7 @@
 				29C051F028AEAA5200120BEC /* Label */,
 				29D28B3228B009B50025A017 /* Switch */,
 			);
-			path = Extensions;
+			path = ParkingKit;
 			sourceTree = "<group>";
 		};
 		29D0139728ABE93700D08480 /* Model */ = {
