@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import TextFieldFormatter
 
 class RegisterVehicleViewController: DefaultViewController {
 
     private lazy var ownerName = ParkingTextField(text: "Dono", type: .Normal)
     private lazy var model = ParkingTextField(text: "Modelo (Nome do Carro)", type: .Normal)
     private lazy var color = ParkingTextField(text: "Cor", type: .Normal)
+    private lazy var licence = TextFieldFormatter(placeholder: "Placa - Comum", type: .License)
+    private lazy var isMercosul = ParkingSwitch(stateStart: false)
+    private lazy var isMercosulLabel = ParkingLabel(content: "Placa padrão Mercosul",
+                                                    size: 16, type: .darkGreyMessage)
     private lazy var picker = UIPickerView()
     
     let viewModel = RegisterVehicleViewModel()
@@ -30,10 +35,14 @@ class RegisterVehicleViewController: DefaultViewController {
         view.addSubview(ownerName)
         view.addSubview(model)
         view.addSubview(color)
+        view.addSubview(licence)
+        view.addSubview(isMercosul)
+        view.addSubview(isMercosulLabel)
     }
     
     private func setupUI() {
         color.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showPicker(_:))))
+        isMercosul.addTarget(self, action: #selector(setTextField), for: UIControl.Event.valueChanged)
     }
     
     private func setupConstraints() {
@@ -51,7 +60,18 @@ class RegisterVehicleViewController: DefaultViewController {
             color.topAnchor.constraint(equalTo: model.bottomAnchor, constant: 10),
             color.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             color.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
-            color.heightAnchor.constraint(equalToConstant: 50)
+            color.heightAnchor.constraint(equalToConstant: 50),
+            
+            licence.topAnchor.constraint(equalTo: color.bottomAnchor, constant: 10),
+            licence.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
+            licence.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
+            licence.heightAnchor.constraint(equalToConstant: 50),
+            
+            isMercosul.topAnchor.constraint(equalTo: licence.bottomAnchor, constant: 10),
+            isMercosul.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
+            
+            isMercosulLabel.centerYAnchor.constraint(equalTo: isMercosul.centerYAnchor, constant: 2),
+            isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10)
         ])
     }
     
@@ -87,6 +107,17 @@ class RegisterVehicleViewController: DefaultViewController {
         color.resignFirstResponder()
         color.text = ""
     }
+    
+    @objc func setTextField(_ sender: UITapGestureRecognizer) {
+        licence.text = ""
+        if isMercosul.isOn {
+            licence.placeholder = "Placa - Padrão Mercosul"
+            licence.pattern = "CCCNCNN"
+        } else {
+            licence.placeholder = "Placa - Comum"
+            licence.pattern = "CCC-NNNN"
+        }
+    }
 }
 
 extension RegisterVehicleViewController: UIPickerViewDelegate {
@@ -94,6 +125,7 @@ extension RegisterVehicleViewController: UIPickerViewDelegate {
         color.text = viewModel.colors[row]
     }
 }
+
 extension RegisterVehicleViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
