@@ -17,6 +17,9 @@ class RegisterVehicleViewController: DefaultViewController {
     private lazy var isMercosul = ParkingSwitch(stateStart: false)
     private lazy var isMercosulLabel = ParkingLabel(content: "Placa padrão Mercosul",
                                                     size: 16, type: .darkGreyMessage)
+    private lazy var addCarButtom = ParkingButton(content: "Adicionar Carro",
+                                                  type: .primary)
+    
     private lazy var picker = UIPickerView()
     
     let viewModel = RegisterVehicleViewModel()
@@ -38,6 +41,7 @@ class RegisterVehicleViewController: DefaultViewController {
         view.addSubview(licence)
         view.addSubview(isMercosul)
         view.addSubview(isMercosulLabel)
+        view.addSubview(addCarButtom)
     }
     
     private func setupUI() {
@@ -71,7 +75,12 @@ class RegisterVehicleViewController: DefaultViewController {
             isMercosul.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             
             isMercosulLabel.centerYAnchor.constraint(equalTo: isMercosul.centerYAnchor, constant: 2),
-            isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10)
+            isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10),
+            
+            addCarButtom.topAnchor.constraint(equalTo: isMercosul.bottomAnchor, constant: 20),
+            addCarButtom.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
+            addCarButtom.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
+            addCarButtom.heightAnchor.constraint(equalToConstant: 70)
         ])
     }
     
