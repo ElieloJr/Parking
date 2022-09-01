@@ -9,7 +9,17 @@ import UIKit
 import TextFieldFormatter
 
 class RegisterVehicleViewController: DefaultViewController {
-
+    
+    private lazy var viewBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = Colors.defaultBackground
+        view.layer.cornerRadius = 30
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    private lazy var titleModal = ParkingLabel(content: "Cadastrar Veículo".uppercased(),
+                                               size: 20, type: .darkGreyMessage)
     private lazy var ownerName = ParkingTextField(text: "Dono", type: .Normal)
     private lazy var model = ParkingTextField(text: "Modelo (Nome do Carro)", type: .Normal)
     private lazy var color = ParkingTextField(text: "Cor", type: .Normal)
@@ -33,15 +43,18 @@ class RegisterVehicleViewController: DefaultViewController {
     }
     
     private func setupView() {
-        title = "Cadastrar Veículo"
+        view.backgroundColor = .clear
         
-        view.addSubview(ownerName)
-        view.addSubview(model)
-        view.addSubview(color)
-        view.addSubview(licence)
-        view.addSubview(isMercosul)
-        view.addSubview(isMercosulLabel)
-        view.addSubview(addCarButtom)
+        view.addSubview(viewBackground)
+        
+        viewBackground.addSubview(titleModal)
+        viewBackground.addSubview(ownerName)
+        viewBackground.addSubview(model)
+        viewBackground.addSubview(color)
+        viewBackground.addSubview(licence)
+        viewBackground.addSubview(isMercosul)
+        viewBackground.addSubview(isMercosulLabel)
+        viewBackground.addSubview(addCarButtom)
     }
     
     private func setupUI() {
@@ -51,9 +64,17 @@ class RegisterVehicleViewController: DefaultViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            ownerName.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            ownerName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            ownerName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            viewBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            viewBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            viewBackground.heightAnchor.constraint(equalToConstant: view.frame.height/2),
+            viewBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            titleModal.topAnchor.constraint(equalTo: viewBackground.topAnchor, constant: 24),
+            titleModal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            ownerName.topAnchor.constraint(equalTo: viewBackground.topAnchor, constant: 60),
+            ownerName.leadingAnchor.constraint(equalTo: viewBackground.leadingAnchor, constant: 20),
+            ownerName.trailingAnchor.constraint(equalTo: viewBackground.trailingAnchor, constant: -20),
             ownerName.heightAnchor.constraint(equalToConstant: 50),
             
             model.topAnchor.constraint(equalTo: ownerName.bottomAnchor, constant: 10),

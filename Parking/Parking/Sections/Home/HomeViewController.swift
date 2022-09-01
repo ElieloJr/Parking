@@ -125,6 +125,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let registerVehicle = RegisterVehicleViewController()
         let rootDetailController = UINavigationController(rootViewController: registerVehicle)
+        registerVehicle.modalPresentationStyle = .overCurrentContext
         present(rootDetailController, animated: true)
     }
 }
