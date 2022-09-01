@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		292FE93A28BE43C6001107C7 /* VacancyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE93928BE43C6001107C7 /* VacancyDetails.swift */; };
 		292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE94028BE5903001107C7 /* ParkingMenuView.swift */; };
+		292FE94428BE9B55001107C7 /* RegisterVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE94328BE9B55001107C7 /* RegisterVehicleViewController.swift */; };
+		292FE94628BE9C5C001107C7 /* RegisterVehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE94528BE9C5C001107C7 /* RegisterVehicleViewModel.swift */; };
 		2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */; };
 		2940A87928B8FD9200989FF8 /* ParkingSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */; };
 		29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		292FE93928BE43C6001107C7 /* VacancyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyDetails.swift; sourceTree = "<group>"; };
 		292FE94028BE5903001107C7 /* ParkingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMenuView.swift; sourceTree = "<group>"; };
+		292FE94328BE9B55001107C7 /* RegisterVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVehicleViewController.swift; sourceTree = "<group>"; };
+		292FE94528BE9C5C001107C7 /* RegisterVehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVehicleViewModel.swift; sourceTree = "<group>"; };
 		2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCollectionViewCell.swift; sourceTree = "<group>"; };
 		2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSeparatorView.swift; sourceTree = "<group>"; };
 		29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 				292FE94028BE5903001107C7 /* ParkingMenuView.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		292FE94228BE9AD6001107C7 /* Register Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				292FE94328BE9B55001107C7 /* RegisterVehicleViewController.swift */,
+				292FE94528BE9C5C001107C7 /* RegisterVehicleViewModel.swift */,
+			);
+			path = "Register Vehicle";
 			sourceTree = "<group>";
 		};
 		2940A87528B8F83900989FF8 /* VacancyViewCell */ = {
@@ -242,7 +255,7 @@
 		29D0137E28ABE34500D08480 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
-				29D0139628ABE92900D08480 /* Extensions */,
+				29D0139628ABE92900D08480 /* ParkingKit */,
 				29D0139828ABE94F00D08480 /* Repository */,
 				29D0139728ABE93700D08480 /* Model */,
 				29D0139928ABE95A00D08480 /* Sections */,
@@ -258,7 +271,7 @@
 			path = Parking;
 			sourceTree = "<group>";
 		};
-		29D0139628ABE92900D08480 /* Extensions */ = {
+		29D0139628ABE92900D08480 /* ParkingKit */ = {
 			isa = PBXGroup;
 			children = (
 				2960710B28AD2BAA00B70FB3 /* Colors */,
@@ -270,7 +283,7 @@
 				29C051F028AEAA5200120BEC /* Label */,
 				29D28B3228B009B50025A017 /* Switch */,
 			);
-			path = Extensions;
+			path = ParkingKit;
 			sourceTree = "<group>";
 		};
 		29D0139728ABE93700D08480 /* Model */ = {
@@ -295,6 +308,7 @@
 				29C051E828AEA5D200120BEC /* Register User */,
 				29466C1228B3CC8300E95D5C /* Register Parking */,
 				295C298B28B5477E00DFE7C2 /* Home */,
+				292FE94228BE9AD6001107C7 /* Register Vehicle */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -472,6 +486,8 @@
 				29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */,
 				29C051F228AEAA7700120BEC /* ParkingLabel.swift in Sources */,
 				2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */,
+				292FE94428BE9B55001107C7 /* RegisterVehicleViewController.swift in Sources */,
+				292FE94628BE9C5C001107C7 /* RegisterVehicleViewModel.swift in Sources */,
 				29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */,
 				292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */,
 				2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */,

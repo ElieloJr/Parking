@@ -3,6 +3,8 @@ public enum TypeMask {
     case CNPJ
     case Money1
     case Money2
+    case License
+    case Mercosul
 }
 
 public class TextFieldFormatter: UITextField {
@@ -50,6 +52,14 @@ public class TextFieldFormatter: UITextField {
         case .Money2:
             self.placeholder = placeholder
             self.pattern = "R$ NNN,NN"
+        case .License:
+            self.placeholder = placeholder
+            self.keyboardType = .default
+            self.pattern = "CCC-NNNN"
+        case .Mercosul:
+            self.placeholder = placeholder
+            self.keyboardType = .default
+            self.pattern = "CCCNCNN"
         }
     }
     

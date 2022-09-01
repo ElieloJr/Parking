@@ -15,7 +15,7 @@ class HomeViewController: DefaultViewController {
     
     private lazy var menu = ParkingMenuView()
     
-    private lazy var parkingCollectionView: UICollectionView = {
+    public lazy var parkingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
@@ -43,7 +43,7 @@ class HomeViewController: DefaultViewController {
     
     private lazy var bottomMessageView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = Colors.defaultBackground
         view.layer.cornerRadius = 40
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -121,7 +121,15 @@ class HomeViewController: DefaultViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate { }
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let registerVehicle = RegisterVehicleViewController()
+        let rootDetailController = UINavigationController(rootViewController: registerVehicle)
+        registerVehicle.modalPresentationStyle = .overCurrentContext
+        registerVehicle.viewModel.numVacancy = indexPath.row
+        present(rootDetailController, animated: true)
+    }
+}
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -136,5 +144,3 @@ extension HomeViewController: UICollectionViewDataSource {
         return cell
     }
 }
-
-
