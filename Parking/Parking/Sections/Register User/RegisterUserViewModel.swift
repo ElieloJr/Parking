@@ -13,6 +13,8 @@ enum TypeField {
     case Name
     case CNPJ
     case Email
+    case LicenseDefault
+    case LicenseMercosul
 }
 
 protocol RegisterUserViewDelegate: AnyObject {
@@ -49,6 +51,8 @@ class RegisterUserViewModel {
             if textField.count != 18 { alert(field) }
         case .Email:
             if !isValidFormatEmail(textField) { alert(field) }
+        case .LicenseDefault, .LicenseMercosul:
+            break
         }
     }
     

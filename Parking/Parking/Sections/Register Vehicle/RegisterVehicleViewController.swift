@@ -44,6 +44,7 @@ class RegisterVehicleViewController: DefaultViewController {
     
     private func setupView() {
         view.backgroundColor = .clear
+        viewModel.delegate = self
         
         view.addSubview(viewBackground)
         
@@ -60,6 +61,7 @@ class RegisterVehicleViewController: DefaultViewController {
     private func setupUI() {
         color.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showPicker(_:))))
         isMercosul.addTarget(self, action: #selector(setTextField), for: UIControl.Event.valueChanged)
+        addCarButtom.addTarget(self, action: #selector(self.registerCar), for: .touchUpInside)
     }
     
     private func setupConstraints() {
@@ -148,6 +150,10 @@ class RegisterVehicleViewController: DefaultViewController {
             licence.pattern = "CCC-NNNN"
         }
     }
+    
+    @objc func registerCar() {
+        viewModel.validateFields(ownerName, model, color, licence, isMercosul)
+    }
 }
 
 extension RegisterVehicleViewController: UIPickerViewDelegate {
@@ -165,5 +171,23 @@ extension RegisterVehicleViewController: UIPickerViewDataSource {
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(viewModel.colors[row])"
+    }
+}
+
+extension RegisterVehicleViewController: RegisterVehicleViewDelegate {
+    func showAlertIn(_ field: UITextField) {
+        field.layer.borderColor = UIColor.red.cgColor
+        field.layer.borderWidth = 2
+    }
+    
+    func setToDefault() {
+        ownerName.layer.borderWidth = 0
+        model.layer.borderWidth = 0
+        color.layer.borderWidth = 0
+        licence.layer.borderWidth = 0
+    }
+    
+    func callParking() {
+        dismiss(animated: true, completion: nil)
     }
 }
