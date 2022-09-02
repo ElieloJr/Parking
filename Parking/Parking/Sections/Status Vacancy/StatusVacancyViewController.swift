@@ -1,14 +1,14 @@
 //
-//  RegisterVehicleViewController.swift
+//  StatusVacancyViewController.swift
 //  Parking
 //
-//  Created by Usr_Prime on 30/08/22.
+//  Created by Usr_Prime on 02/09/22.
 //
 
 import UIKit
 import TextFieldFormatter
 
-class RegisterVehicleViewController: DefaultViewController {
+class StatusVacancyViewController: DefaultViewController {
     
     private lazy var viewBackground: UIView = {
         let view = UIView()
@@ -32,7 +32,13 @@ class RegisterVehicleViewController: DefaultViewController {
     
     private lazy var picker = UIPickerView()
     
-    let viewModel = RegisterVehicleViewModel()
+    let viewModel = StatusVacancyViewModel()
+    
+    convenience init(vacancy: VacancyDetails) {
+        self.init()
+        
+        configureWithCar(with: vacancy)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +67,32 @@ class RegisterVehicleViewController: DefaultViewController {
     private func setupUI() {
         color.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showPicker(_:))))
         isMercosul.addTarget(self, action: #selector(setTextField), for: UIControl.Event.valueChanged)
-        addCarButtom.addTarget(self, action: #selector(self.registerCar), for: .touchUpInside)
+        if !isMercosul.isHidden {
+            addCarButtom.addTarget(self, action: #selector(self.registerCar), for: .touchUpInside)
+        } else {
+            addCarButtom.addTarget(self, action: #selector(self.checkoutCar), for: .touchUpInside)
+        }
     }
     
     private func setupConstraints() {
+        let viewHeight = view.frame.height/2
+        if !isMercosul.isHidden {
+            NSLayoutConstraint.activate([
+                viewBackground.heightAnchor.constraint(equalToConstant: viewHeight),
+                
+                isMercosul.topAnchor.constraint(equalTo: licence.bottomAnchor, constant: 10),
+                isMercosul.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
+            
+                isMercosulLabel.centerYAnchor.constraint(equalTo: isMercosul.centerYAnchor, constant: 2),
+                isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10),
+            ])
+        } else {
+            viewBackground.heightAnchor.constraint(equalToConstant: viewHeight-50).isActive = true
+        }
+        
         NSLayoutConstraint.activate([
             viewBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             viewBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            viewBackground.heightAnchor.constraint(equalToConstant: view.frame.height/2),
             viewBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             titleModal.topAnchor.constraint(equalTo: viewBackground.topAnchor, constant: 24),
@@ -94,19 +118,32 @@ class RegisterVehicleViewController: DefaultViewController {
             licence.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
             licence.heightAnchor.constraint(equalToConstant: 50),
             
-            isMercosul.topAnchor.constraint(equalTo: licence.bottomAnchor, constant: 10),
-            isMercosul.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
-            
-            isMercosulLabel.centerYAnchor.constraint(equalTo: isMercosul.centerYAnchor, constant: 2),
-            isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10),
-            
-            addCarButtom.topAnchor.constraint(equalTo: isMercosul.bottomAnchor, constant: 20),
             addCarButtom.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             addCarButtom.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
-            addCarButtom.heightAnchor.constraint(equalToConstant: 70)
+            addCarButtom.heightAnchor.constraint(equalToConstant: 70),
+            addCarButtom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
+        
     }
     
+    private func configureWithCar(with car: VacancyDetails) {
+        if !car.isEmpty {
+            self.titleModal.text = "Consultar Veículo".uppercased()
+            self.ownerName.text = car.ownerName
+            
+            self.model.text = car.model
+            self.color.text = car.color
+            self.licence.text = car.licence
+            self.isMercosul.isHidden = true
+            self.isMercosulLabel.isHidden = true
+            addCarButtom.setTitle("Fazer Checkout", for: .normal)
+            
+            self.ownerName.isUserInteractionEnabled = false
+            self.model.isUserInteractionEnabled = false
+            self.color.isUserInteractionEnabled = false
+            self.licence.isUserInteractionEnabled = false
+        }
+    }
     @objc func showPicker(_ sender: UITapGestureRecognizer) {
         self.picker = UIPickerView(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height/3))
         self.picker.delegate = self
@@ -139,7 +176,6 @@ class RegisterVehicleViewController: DefaultViewController {
         color.resignFirstResponder()
         color.text = ""
     }
-    
     @objc func setTextField(_ sender: UITapGestureRecognizer) {
         licence.text = ""
         if isMercosul.isOn {
@@ -150,19 +186,24 @@ class RegisterVehicleViewController: DefaultViewController {
             licence.pattern = "CCC-NNNN"
         }
     }
-    
     @objc func registerCar() {
         viewModel.validateFields(ownerName, model, color, licence, isMercosul)
     }
+    
+    @objc func checkoutCar() {
+        dismiss(animated: true, completion: nil)
+        print("Checkout realizado com sucesso!")
+        // TODO: Call valueScreen
+    }
 }
 
-extension RegisterVehicleViewController: UIPickerViewDelegate {
+extension StatusVacancyViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         color.text = viewModel.colors[row]
     }
 }
 
-extension RegisterVehicleViewController: UIPickerViewDataSource {
+extension StatusVacancyViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -174,19 +215,17 @@ extension RegisterVehicleViewController: UIPickerViewDataSource {
     }
 }
 
-extension RegisterVehicleViewController: RegisterVehicleViewDelegate {
+extension StatusVacancyViewController: StatusVacancyViewDelegate {
     func showAlertIn(_ field: UITextField) {
         field.layer.borderColor = UIColor.red.cgColor
         field.layer.borderWidth = 2
     }
-    
     func setToDefault() {
         ownerName.layer.borderWidth = 0
         model.layer.borderWidth = 0
         color.layer.borderWidth = 0
         licence.layer.borderWidth = 0
     }
-    
     func callParking() {
         dismiss(animated: true, completion: nil)
     }

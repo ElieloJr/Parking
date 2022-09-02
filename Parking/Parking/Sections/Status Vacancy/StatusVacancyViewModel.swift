@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol RegisterVehicleViewDelegate {
+protocol StatusVacancyViewDelegate {
     func showAlertIn(_ field: UITextField)
     func setToDefault()
     func callParking()
 }
 
-class RegisterVehicleViewModel {
+class StatusVacancyViewModel {
     let colors = ["Preto", "Branco", "Vermelho", "Prata", "Cinza", "Azul", "Marrom", "Verde", "Outra"]
-    var delegate: RegisterVehicleViewDelegate?
+    var delegate: StatusVacancyViewDelegate?
     private var canContinue = true
     var numVacancy: Int = 0
     
