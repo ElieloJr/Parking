@@ -18,6 +18,30 @@ class ProfileViewController: DefaultViewController {
     private lazy var carsTodayCamp = ParkingCampView(content: "19", type: .Total)
     private lazy var collectedTodayCamp = ParkingCampView(content: "100,00", type: .Collected)
     private lazy var statusCamp = ParkingCampView(content: "", type: .Status)
+    private lazy var historicView : UIView = {
+        let campNameLabel = ParkingLabel(content: "Histórico", size: 16, type: .whiteMessage)
+        campNameLabel.textAlignment = .center
+        let view = UIView()
+        view.backgroundColor = Colors.blue
+        view.layer.cornerRadius = 6
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(campNameLabel)
+        NSLayoutConstraint.activate([
+        campNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        campNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+        campNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
+        ])
+        return view
+    }()
+    
+    private lazy var historicTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +63,9 @@ class ProfileViewController: DefaultViewController {
         view.addSubview(carsTodayCamp)
         view.addSubview(collectedTodayCamp)
         view.addSubview(statusCamp)
+        
+        view.addSubview(historicView)
+        view.addSubview(historicTableView)
     }
     
     private func setupUI() {
@@ -79,7 +106,17 @@ class ProfileViewController: DefaultViewController {
             statusCamp.topAnchor.constraint(equalTo: carsTodayCamp.bottomAnchor, constant: 10),
             statusCamp.leadingAnchor.constraint(equalTo: carsTodayCamp.leadingAnchor),
             statusCamp.trailingAnchor.constraint(equalTo: collectedTodayCamp.trailingAnchor),
-            statusCamp.heightAnchor.constraint(equalToConstant: 60)
+            statusCamp.heightAnchor.constraint(equalToConstant: 60),
+            
+            historicView.topAnchor.constraint(equalTo: statusCamp.bottomAnchor, constant: 20),
+            historicView.leadingAnchor.constraint(equalTo: statusCamp.leadingAnchor),
+            historicView.widthAnchor.constraint(equalToConstant: view.frame.width/3),
+            historicView.heightAnchor.constraint(equalToConstant: 30),
+            
+            historicTableView.topAnchor.constraint(equalTo: historicView.bottomAnchor, constant: 10),
+            historicTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            historicTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            historicTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
