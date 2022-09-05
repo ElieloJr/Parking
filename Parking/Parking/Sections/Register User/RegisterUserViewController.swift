@@ -18,7 +18,7 @@ class RegisterUserViewController: DefaultViewController {
     
     private lazy var lastNameTextField = ParkingTextField(text: "Sobrenome", type: .Normal)
     
-    private lazy var CNPJTextField = TextFieldFormatter(placeholder: "", type: .CNPJ)
+    private lazy var CNPJTextField = TextFieldFormatter(placeholder: "CNPJ", type: .CNPJ)
     
     private lazy var emailTextField = ParkingTextField(text: "Email", type: .Email)
     

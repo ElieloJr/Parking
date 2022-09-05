@@ -14,7 +14,7 @@ protocol StatusVacancyViewDelegate {
 }
 
 class StatusVacancyViewModel {
-    let colors = ["Preto", "Branco", "Vermelho", "Prata", "Cinza", "Azul", "Marrom", "Verde", "Outra"]
+    let colors = Data.colorCars
     var delegate: StatusVacancyViewDelegate?
     private var canContinue = true
     var numVacancy: Int = 0

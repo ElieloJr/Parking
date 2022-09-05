@@ -38,26 +38,32 @@ public class TextFieldFormatter: UITextField {
     
     // MARK: - Private Properties
     private var oldText: String = ""
+    private let lightGrey = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
+    private let darkGrey = UIColor(red: 0.31, green: 0.33, blue: 0.31, alpha: 1.00)
     
     // MARK: - Init
     public convenience init(placeholder: String, type: TypeMask) {
         self.init(frame: .zero)
+        self.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSAttributedString.Key.foregroundColor: lightGrey]
+            )
         
         switch type {
         case .CNPJ:
-            maskCNPJ()
+            self.pattern = "NN.NNN.NNN/NNNN-nn"
+            
         case .Money1:
-            self.placeholder = placeholder
             self.pattern = "R$ NN,NN"
+            
         case .Money2:
-            self.placeholder = placeholder
             self.pattern = "R$ NNN,NN"
+            
         case .License:
-            self.placeholder = placeholder
             self.keyboardType = .default
             self.pattern = "CCC-NNNN"
+            
         case .Mercosul:
-            self.placeholder = placeholder
             self.keyboardType = .default
             self.pattern = "CCCNCNN"
         }
@@ -97,6 +103,7 @@ public class TextFieldFormatter: UITextField {
     private func defaultLayout() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 10
+        self.textColor = darkGrey
         self.keyboardType = .numberPad
         self.autocapitalizationType = .words
         self.font = UIFont.init(name: "Arial", size: 20.0)
@@ -112,11 +119,6 @@ public class TextFieldFormatter: UITextField {
         self.rightViewMode = .always
         
         self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func maskCNPJ() {
-        self.placeholder = "CNPJ"
-        self.pattern = "NN.NNN.NNN/NNNN-nn"
     }
     
     // MARK: - Observer Methods

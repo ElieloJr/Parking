@@ -28,7 +28,10 @@ class ParkingTextField: UITextField {
     
     public convenience init(text: String, type: TypeTextField) {
         self.init(frame: .zero)
-        self.placeholder = text
+        self.attributedPlaceholder = NSAttributedString(
+            string: text,
+            attributes: [NSAttributedString.Key.foregroundColor: Colors.lightGrey]
+            )
 
         switch type {
         case .Email:
@@ -91,6 +94,7 @@ class ParkingTextField: UITextField {
         self.layer.cornerRadius = 10
         self.font = UIFont.init(name: "Arial", size: 20.0)
         self.autocapitalizationType = .words
+        self.textColor = Colors.darkGrey
 
         self.layer.shadowOpacity = 0.2
         self.layer.shadowRadius = 2.0

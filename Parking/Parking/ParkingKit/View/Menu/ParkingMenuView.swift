@@ -9,9 +9,9 @@ import UIKit
 
 class ParkingMenuView: UIView {
     
-    private let historicButton = ParkingButton(content: "Histórico do dia".uppercased(),
+    public let historicButton = ParkingButton(content: "Histórico do dia".uppercased(),
                                                type: .fourth)
-    private let profileButton = ParkingButton(content: "Perfil".uppercased(), type: .fourth)
+    public let profileButton = ParkingButton(content: "Perfil".uppercased(), type: .fourth)
     public let exitButton = ParkingButton(content: "Sair".uppercased(), type: .primary)
 
     override init(frame: CGRect) {

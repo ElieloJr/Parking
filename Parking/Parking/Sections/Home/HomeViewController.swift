@@ -79,6 +79,7 @@ class HomeViewController: DefaultViewController {
         navigationController?.navigationBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOrHideMenu(_:))))
         statusParking.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOrHideMenu(_:))))
 
+        menu.profileButton.addTarget(self, action: #selector(self.openProfile), for: .touchUpInside)
         menu.exitButton.addTarget(self, action: #selector(self.exitScreen), for: .touchUpInside)
     }
     
@@ -115,7 +116,13 @@ class HomeViewController: DefaultViewController {
         if menu.isHidden { menu.isHidden = false }
         else { menu.isHidden = true }
     }
-    
+    @objc func openProfile() {
+        menu.isHidden = true
+        let profile = ProfileViewController()
+        let rootController = UINavigationController(rootViewController: profile)
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
+    }
     @objc func exitScreen() {
         dismiss(animated: true, completion: nil)
     }
@@ -123,6 +130,7 @@ class HomeViewController: DefaultViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        menu.isHidden = true
         let vacancy = viewModel.parking[indexPath.row]
         let statusVacancy = StatusVacancyViewController(vacancy: vacancy)
         let rootDetailController = UINavigationController(rootViewController: statusVacancy)
