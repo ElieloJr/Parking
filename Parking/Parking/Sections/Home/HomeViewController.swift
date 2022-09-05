@@ -129,6 +129,7 @@ class HomeViewController: DefaultViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        menu.isHidden = true
         let vacancy = viewModel.parking[indexPath.row]
         let statusVacancy = StatusVacancyViewController(vacancy: vacancy)
         let rootDetailController = UINavigationController(rootViewController: statusVacancy)

@@ -14,6 +14,7 @@ class LoginViewController: DefaultViewController {
     private lazy var loginLabel: UILabel = {
         let label = UILabel()
         label.text = "Login"
+        label.textColor = .black
         label.font = UIFont(name:"Arial Hebrew Bold", size: 25.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
