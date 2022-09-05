@@ -25,6 +25,7 @@
 		29BEF05D28C26E2B00E49B30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF05C28C26E2B00E49B30 /* ProfileViewController.swift */; };
 		29BEF05F28C26E4E00E49B30 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF05E28C26E4E00E49B30 /* ProfileViewModel.swift */; };
 		29BEF06328C2747600E49B30 /* ParkingBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF06228C2747600E49B30 /* ParkingBackButton.swift */; };
+		29BEF06628C27DAD00E49B30 /* ParkingCampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF06528C27DAD00E49B30 /* ParkingCampView.swift */; };
 		29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051E928AEA63600120BEC /* RegisterUserViewController.swift */; };
 		29C051EC28AEA68800120BEC /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051EB28AEA68800120BEC /* RegisterUserViewModel.swift */; };
 		29C051EF28AEA75600120BEC /* ParkingLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051EE28AEA75600120BEC /* ParkingLogoImageView.swift */; };
@@ -62,6 +63,7 @@
 		29BEF05C28C26E2B00E49B30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		29BEF05E28C26E4E00E49B30 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		29BEF06228C2747600E49B30 /* ParkingBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingBackButton.swift; sourceTree = "<group>"; };
+		29BEF06528C27DAD00E49B30 /* ParkingCampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingCampView.swift; sourceTree = "<group>"; };
 		29C051E928AEA63600120BEC /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		29C051EB28AEA68800120BEC /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
 		29C051EE28AEA75600120BEC /* ParkingLogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLogoImageView.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				292FE93F28BE58DA001107C7 /* Menu */,
 				292FE93E28BE5893001107C7 /* ChooseLogo */,
 				292FE93D28BE5872001107C7 /* Separator */,
+				29BEF06428C27D7000E49B30 /* Camp */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +242,14 @@
 				2960710628AD28B300B70FB3 /* ParkingButton.swift */,
 			);
 			path = "Default Buttons";
+			sourceTree = "<group>";
+		};
+		29BEF06428C27D7000E49B30 /* Camp */ = {
+			isa = PBXGroup;
+			children = (
+				29BEF06528C27DAD00E49B30 /* ParkingCampView.swift */,
+			);
+			path = Camp;
 			sourceTree = "<group>";
 		};
 		29C051E828AEA5D200120BEC /* Register User */ = {
@@ -526,6 +537,7 @@
 				29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */,
 				292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */,
 				2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */,
+				29BEF06628C27DAD00E49B30 /* ParkingCampView.swift in Sources */,
 				29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */,
 				29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */,
 				29825D5028B66BD600D5C828 /* ParkingStatusView.swift in Sources */,
