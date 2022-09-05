@@ -117,6 +117,7 @@ class HomeViewController: DefaultViewController {
         else { menu.isHidden = true }
     }
     @objc func openProfile() {
+        menu.isHidden = true
         let profile = ProfileViewController()
         let rootController = UINavigationController(rootViewController: profile)
         rootController.modalPresentationStyle = .fullScreen

@@ -37,22 +37,34 @@ class ProfileViewController: DefaultViewController {
     
     private lazy var historicTableView: UITableView = {
         let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorColor = .clear
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
+        tableView.register(HistoricTableViewCell.self,
+                           forCellReuseIdentifier: HistoricTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    let viewModel = ProfileViewModel()
 
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.filterVacancies()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupUI()
         setupConstraints()
+        viewModel.filterVacancies()
     }
     
     private func setupView() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: arrowButton)
+        viewModel.delegate = self
         
         view.addSubview(userImageView)
         view.addSubview(parkingLabel)
@@ -123,5 +135,31 @@ class ProfileViewController: DefaultViewController {
     @objc func backButton() {
         dismiss(animated: true, completion: nil)
     }
+}
 
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.height/9
+    }
+}
+
+extension ProfileViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.historicCars.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoricTableViewCell.identifier, for: indexPath) as? HistoricTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        cell.configureCell(with: viewModel.historicCars[indexPath.row])
+        return cell
+    }
+}
+
+extension ProfileViewController: ProfileViewDelegate {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.historicTableView.reloadData()
+        }
+    }
 }

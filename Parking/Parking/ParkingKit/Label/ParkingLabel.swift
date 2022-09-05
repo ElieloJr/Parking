@@ -38,7 +38,7 @@ class ParkingLabel: UILabel {
             self.textColor = Colors.blue
             self.textAlignment = .center
             self.numberOfLines = 6
-            self.font = UIFont(name:fontName, size: CGFloat(size))
+            self.font = UIFont(name: "Arial Rounded MT Bold", size: CGFloat(size))
         case .lightGreyMessage:
             self.textColor = Colors.lightGrey
             self.textAlignment = .center

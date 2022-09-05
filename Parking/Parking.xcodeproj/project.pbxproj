@@ -41,6 +41,8 @@
 		29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A028ABEC1600D08480 /* DefaultViewController.swift */; };
 		29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A228AC0D9D00D08480 /* ParkingTextField.swift */; };
 		29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28B3028B009AA0025A017 /* ParkingSwitch.swift */; };
+		29FB917E28C670360033C83C /* HistoricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FB917D28C670360033C83C /* HistoricTableViewCell.swift */; };
+		29FB918128C67F9C0033C83C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FB918028C67F9C0033C83C /* Data.swift */; };
 		7BF3931C45C51CF034FFF480 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B999665C39C4D3A169E889 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		29D013A028ABEC1600D08480 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		29D013A228AC0D9D00D08480 /* ParkingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTextField.swift; sourceTree = "<group>"; };
 		29D28B3028B009AA0025A017 /* ParkingSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSwitch.swift; sourceTree = "<group>"; };
+		29FB917D28C670360033C83C /* HistoricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricTableViewCell.swift; sourceTree = "<group>"; };
+		29FB918028C67F9C0033C83C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		6655DD0647EDD17415379700 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		B5B999665C39C4D3A169E889 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,8 +145,8 @@
 		292FE94228BE9AD6001107C7 /* Status Vacancy */ = {
 			isa = PBXGroup;
 			children = (
-				292FE94528BE9C5C001107C7 /* StatusVacancyViewModel.swift */,
 				295EE16F28C2389F00138D98 /* StatusVacancyViewController.swift */,
+				292FE94528BE9C5C001107C7 /* StatusVacancyViewModel.swift */,
 			);
 			path = "Status Vacancy";
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 		29D0139728ABE93700D08480 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29FB917F28C67F450033C83C /* Mock */,
 				292FE93928BE43C6001107C7 /* VacancyDetails.swift */,
 			);
 			path = Model;
@@ -361,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				2940A87528B8F83900989FF8 /* VacancyViewCell */,
+				29FB917C28C670040033C83C /* HistoricViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -380,6 +386,22 @@
 				29D28B3028B009AA0025A017 /* ParkingSwitch.swift */,
 			);
 			path = Switch;
+			sourceTree = "<group>";
+		};
+		29FB917C28C670040033C83C /* HistoricViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				29FB917D28C670360033C83C /* HistoricTableViewCell.swift */,
+			);
+			path = HistoricViewCell;
+			sourceTree = "<group>";
+		};
+		29FB917F28C67F450033C83C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				29FB918028C67F9C0033C83C /* Data.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		683B050E7963E4F6E7B91BAF /* Frameworks */ = {
@@ -526,6 +548,8 @@
 				29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */,
 				29C051EF28AEA75600120BEC /* ParkingLogoImageView.swift in Sources */,
 				292FE93A28BE43C6001107C7 /* VacancyDetails.swift in Sources */,
+				29FB918128C67F9C0033C83C /* Data.swift in Sources */,
+				29FB917E28C670360033C83C /* HistoricTableViewCell.swift in Sources */,
 				295C299128B54B3200DFE7C2 /* ParkingHeaderView.swift in Sources */,
 				29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */,
 				29C051EC28AEA68800120BEC /* RegisterUserViewModel.swift in Sources */,
