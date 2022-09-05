@@ -16,6 +16,7 @@ class ProfileViewController: DefaultViewController {
     private lazy var employeeLabel = ParkingLabel(content: "Funcionário", size: 16, type: .lightGreyMessage)
     private lazy var meliantNameLabel = ParkingLabel(content: "Nome do Meliante", size: 18, type: .darkGreyMessage)
     private lazy var carsTodayCamp = ParkingCampView(content: "19", type: .Total)
+    private lazy var collectedTodayCamp = ParkingCampView(content: "100,00", type: .Collected)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class ProfileViewController: DefaultViewController {
         view.addSubview(employeeLabel)
         view.addSubview(meliantNameLabel)
         view.addSubview(carsTodayCamp)
+        view.addSubview(collectedTodayCamp)
     }
     
     private func setupUI() {
@@ -64,7 +66,12 @@ class ProfileViewController: DefaultViewController {
             carsTodayCamp.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 10),
             carsTodayCamp.leadingAnchor.constraint(equalTo: userImageView.leadingAnchor),
             carsTodayCamp.widthAnchor.constraint(equalToConstant: view.frame.width/2.3),
-            carsTodayCamp.heightAnchor.constraint(equalToConstant: 54)
+            carsTodayCamp.heightAnchor.constraint(equalToConstant: 54),
+            
+            collectedTodayCamp.centerYAnchor.constraint(equalTo: carsTodayCamp.centerYAnchor),
+            collectedTodayCamp.leadingAnchor.constraint(equalTo: carsTodayCamp.trailingAnchor, constant: 10),
+            collectedTodayCamp.widthAnchor.constraint(equalToConstant: view.frame.width/2.3),
+            collectedTodayCamp.heightAnchor.constraint(equalToConstant: 54)
         ])
     }
     

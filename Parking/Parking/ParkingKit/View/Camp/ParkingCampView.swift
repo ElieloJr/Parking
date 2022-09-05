@@ -15,9 +15,9 @@ enum CampType {
 
 class ParkingCampView: UIView {
     
-    private lazy var campNameLabel = ParkingLabel(content: "Carros Hoje".uppercased(), size: 14, type: .whiteMessage)
+    private lazy var campNameLabel = ParkingLabel(content: "Carros Hoje".uppercased(), size: 12, type: .whiteMessage)
     
-    private lazy var contentLabel = ParkingLabel(content: "19 veículos", size: 22, type: .lightGreyMessage)
+    private lazy var contentLabel = ParkingLabel(content: "19 veículos", size: 20, type: .lightGreyMessage)
     
     private lazy var blueView : UIView = {
         let view = UIView()
@@ -28,8 +28,8 @@ class ParkingCampView: UIView {
         view.addSubview(campNameLabel)
         NSLayoutConstraint.activate([
         campNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        campNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-        campNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        campNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+        campNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
         ])
         return view
     }()
@@ -72,7 +72,7 @@ class ParkingCampView: UIView {
         self.addSubview(blueView)
         
         blueView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        blueView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -2).isActive = true
+        blueView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         blueView.heightAnchor.constraint(equalToConstant: 22).isActive = true
         
         whiteView.topAnchor.constraint(equalTo: self.topAnchor, constant: 14).isActive = true
