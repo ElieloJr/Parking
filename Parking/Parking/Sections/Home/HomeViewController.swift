@@ -59,6 +59,12 @@ class HomeViewController: DefaultViewController {
     
     private let viewModel = HomeViewModel()
     
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.filterVacancies()
+        statusParking.vacanciesFilledValue.text = "\(viewModel.vacanciesFilled)"
+        statusParking.vacanciesAvailableValue.text = "\(viewModel.vacanciesAvailable)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -12,7 +12,7 @@ class ParkingStatusView: UIView {
     private lazy var vacanciesFilled = ParkingLabel(content: "Preenchidas:",
                                                    size: 16, type: .lightGreyMessage)
     
-    private lazy var vacanciesFilledValue = ParkingLabel(content: "3",
+    public lazy var vacanciesFilledValue = ParkingLabel(content: "0",
                                                          size: 25, type: .darkGreyMessage)
     
     private lazy var separatorView: UIView = {
@@ -25,7 +25,7 @@ class ParkingStatusView: UIView {
     private lazy var vacanciesAvailable = ParkingLabel(content: "Disponíveis:",
                                                       size: 16, type: .lightGreyMessage)
     
-    private lazy var vacanciesAvailableValue = ParkingLabel(content: "7",
+    public lazy var vacanciesAvailableValue = ParkingLabel(content: "0",
                                                          size: 25, type: .darkGreyMessage)
 
     public convenience init() {
@@ -51,10 +51,10 @@ class ParkingStatusView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            vacanciesFilled.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 2),
+            vacanciesFilled.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             vacanciesFilled.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
             
-            vacanciesFilledValue.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor, constant: -1),
+            vacanciesFilledValue.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor, constant: 2),
             vacanciesFilledValue.leadingAnchor.constraint(equalTo: vacanciesFilled.trailingAnchor, constant: 6),
             
             separatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -65,7 +65,7 @@ class ParkingStatusView: UIView {
             vacanciesAvailable.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor),
             vacanciesAvailable.leadingAnchor.constraint(equalTo: separatorView.trailingAnchor, constant: 30),
             
-            vacanciesAvailableValue.centerYAnchor.constraint(equalTo: vacanciesFilled.centerYAnchor, constant: -1),
+            vacanciesAvailableValue.centerYAnchor.constraint(equalTo: vacanciesFilledValue.centerYAnchor),
             vacanciesAvailableValue.leadingAnchor.constraint(equalTo: vacanciesAvailable.trailingAnchor, constant: 6)
         ])
     }
