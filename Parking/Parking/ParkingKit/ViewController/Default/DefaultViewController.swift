@@ -8,9 +8,10 @@
 import UIKit
 
 class DefaultViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = Colors.defaultBackground
     }
 }

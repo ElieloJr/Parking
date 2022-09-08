@@ -8,7 +8,7 @@
 import UIKit
 import TextFieldFormatter
 
-class RegisterUserViewController: DefaultViewController {
+class RegisterUserViewController: KeyboardViewController {
     
     private lazy var logoImageView = ParkingLogoImageView()
     
@@ -43,11 +43,13 @@ class RegisterUserViewController: DefaultViewController {
         
         setupView()
         setupUI()
+        configKeyboard()
         setupConstraints()
     }
     
     private func setupView() {
         viewModel.delegate = self
+        self.wasKeyboardMoved = true
         
         view.addSubview(logoImageView)
         view.addSubview(messageToClient)
@@ -69,6 +71,26 @@ class RegisterUserViewController: DefaultViewController {
     private func setupUI() {
         nextButton.addTarget(self, action: #selector(self.callNextScreen), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(self.backScreen), for: .touchUpInside)
+    }
+    
+    private func configKeyboard() {
+        nameTextField.returnKeyType = .next
+        nameTextField.delegate = self
+        
+        lastNameTextField.returnKeyType = .next
+        lastNameTextField.delegate = self
+        
+        CNPJTextField.returnKeyType = .next
+        CNPJTextField.addToolBar()
+        
+        emailTextField.returnKeyType = .next
+        emailTextField.delegate = self
+        
+        passwordTextField.returnKeyType = .next
+        passwordTextField.delegate = self
+        
+        confirmPasswordTextField.returnKeyType = .done
+        confirmPasswordTextField.delegate = self
     }
     
     private func setupConstraints() {
@@ -168,5 +190,31 @@ extension RegisterUserViewController: RegisterUserViewDelegate {
         let rootController = UINavigationController(rootViewController: RegisterParkingViewController())
         rootController.modalPresentationStyle = .fullScreen
         present(rootController, animated: true)
+    }
+}
+
+extension RegisterUserViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            nameTextField.resignFirstResponder()
+            self.wasKeyboardMoved = true
+            self.enableKeyboardUpMovement = false
+            lastNameTextField.becomeFirstResponder()
+        } else if textField == lastNameTextField {
+            lastNameTextField.resignFirstResponder()
+            self.wasKeyboardMoved = true
+            self.enableKeyboardUpMovement = false
+            CNPJTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            emailTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+            self.wasKeyboardMoved = true
+            self.enableKeyboardUpMovement = false
+        } else if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+            confirmPasswordTextField.becomeFirstResponder()
+        } else if textField == confirmPasswordTextField {            confirmPasswordTextField.resignFirstResponder()
+        }
+        return true
     }
 }
