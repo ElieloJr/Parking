@@ -114,6 +114,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		2917919F28CA35E100FC0E8A /* Object Vacancy */ = {
+			isa = PBXGroup;
+			children = (
+				292FE93928BE43C6001107C7 /* VacancyDetails.swift */,
+			);
+			path = "Object Vacancy";
+			sourceTree = "<group>";
+		};
 		292FE93B28BE584A001107C7 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,7 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				29FB917F28C67F450033C83C /* Mock */,
-				292FE93928BE43C6001107C7 /* VacancyDetails.swift */,
+				2917919F28CA35E100FC0E8A /* Object Vacancy */,
 			);
 			path = Model;
 			sourceTree = "<group>";
