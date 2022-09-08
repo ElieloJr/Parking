@@ -8,7 +8,7 @@
 import UIKit
 import TextFieldFormatter
 
-class RegisterParkingViewController: DefaultViewController {
+class RegisterParkingViewController: KeyboardViewController {
 
     private lazy var finishMessageLabel = ParkingLabel(content: "Para concluir o cadastro conte nos mais sobre o seu Estacionamento", size: 20, type: .blueCenterMessage)
     
@@ -40,6 +40,12 @@ class RegisterParkingViewController: DefaultViewController {
     
     private func setupView() {
         viewModel.delegate = self
+        
+        numVacancies.addToolBar()
+        oneHourValue.addToolBar()
+        addictionalPerHour.addToolBar()
+        dayValue.addToolBar()
+        
         view.addSubview(finishMessageLabel)
         view.addSubview(logoParkingOfUser)
         

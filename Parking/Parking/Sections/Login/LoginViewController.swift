@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: DefaultViewController {
+class LoginViewController: KeyboardViewController {
     
     private lazy var logoImageView = ParkingLogoImageView()
     
@@ -49,6 +49,10 @@ class LoginViewController: DefaultViewController {
     
     let viewModel = LoginViewModel()
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.wasKeyboardMoved = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +63,12 @@ class LoginViewController: DefaultViewController {
 
     private func setupView() {
         viewModel.delegate = self
+        
+        emailTextField.returnKeyType = .next
+        emailTextField.delegate = self
+        
+        passwordTextField.returnKeyType = .done
+        passwordTextField.delegate = self
         
         view.addSubview(logoImageView)
         view.addSubview(loginLabel)
@@ -150,5 +160,17 @@ extension LoginViewController: LoginViewDelegate {
     func authenticateFailed(messageError: String) {
         messageErrorLabel.text = messageError
         messageErrorLabel.isHidden = false
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.returnKeyType == .next {
+            emailTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else {
+            passwordTextField.resignFirstResponder()
+        }
+        return true
     }
 }

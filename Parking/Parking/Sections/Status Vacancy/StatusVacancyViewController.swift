@@ -8,7 +8,7 @@
 import UIKit
 import TextFieldFormatter
 
-class StatusVacancyViewController: DefaultViewController {
+class StatusVacancyViewController: KeyboardViewController {
     
     private lazy var viewBackground: UIView = {
         let view = UIView()
@@ -45,6 +45,7 @@ class StatusVacancyViewController: DefaultViewController {
         
         setupView()
         setupUI()
+        configKeyboard()
         setupConstraints()
     }
     
@@ -72,6 +73,17 @@ class StatusVacancyViewController: DefaultViewController {
         } else {
             addCarButtom.addTarget(self, action: #selector(self.checkoutCar), for: .touchUpInside)
         }
+    }
+    
+    private func configKeyboard() {
+        ownerName.returnKeyType = .next
+        ownerName.delegate = self
+        
+        model.returnKeyType = .next
+        model.delegate = self
+        
+        licence.returnKeyType = .done
+        licence.delegate = self
     }
     
     private func setupConstraints() {
@@ -228,5 +240,19 @@ extension StatusVacancyViewController: StatusVacancyViewDelegate {
     }
     func callParking() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension StatusVacancyViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == ownerName {
+            ownerName.resignFirstResponder()
+            model.becomeFirstResponder()
+        } else if textField == model {
+            model.resignFirstResponder()
+        } else if textField == licence {
+            licence.resignFirstResponder()
+        }
+        return true
     }
 }
