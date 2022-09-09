@@ -24,7 +24,9 @@ class HistoricTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let ownerName = ParkingLabel(content: "Nome do Dono", size: 16, type: .lightGreyMessage)
+    private let ownerName = ParkingLabel(content: "Nome do Dono",
+                                         size: 16,
+                                         type: .lightGreyMessage)
     private let licence = ParkingLabel(content: "HHH-8888", size: 24, type: .blueCenterMessage)
     private let model = ParkingLabel(content: "Modelo (Cor)", size: 16, type: .lightGreyMessage)
     private let separator = ParkingSeparatorView(color: .lightGray)
@@ -46,20 +48,27 @@ class HistoricTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
+        ownerName.font = ownerName.font.withSize(self.frame.height/2.5)
+        licence.font = licence.font.withSize(self.frame.height/1.8)
+        model.font = model.font.withSize(self.frame.height/2.5)
+        value.font = value.font.withSize(self.frame.height/2)
+        
+        let height = self.frame.height
+        
         NSLayoutConstraint.activate([
             whiteView.topAnchor.constraint(equalTo: self.topAnchor),
             whiteView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            whiteView.widthAnchor.constraint(equalToConstant: self.frame.width/0.8),
-            whiteView.heightAnchor.constraint(equalToConstant: self.frame.height/0.5),
+            whiteView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            whiteView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -height/5),
             
-            ownerName.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: 8),
+            ownerName.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: height/6),
             ownerName.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 10),
             
             licence.centerYAnchor.constraint(equalTo: whiteView.centerYAnchor),
             licence.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor, constant: 6),
             
             model.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
-            model.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -8),
+            model.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -height/6),
             
             value.centerYAnchor.constraint(equalTo: whiteView.centerYAnchor),
             value.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -15),
