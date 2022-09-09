@@ -7,15 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2917919D28CA28B100FC0E8A /* extensionTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2917919C28CA28B100FC0E8A /* extensionTextField.swift */; };
+		292FE93A28BE43C6001107C7 /* VacancyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE93928BE43C6001107C7 /* VacancyDetails.swift */; };
+		292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE94028BE5903001107C7 /* ParkingMenuView.swift */; };
+		292FE94628BE9C5C001107C7 /* StatusVacancyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292FE94528BE9C5C001107C7 /* StatusVacancyViewModel.swift */; };
+		2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */; };
+		2940A87928B8FD9200989FF8 /* ParkingSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */; };
+		29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */; };
+		29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */; };
+		29466C1928B3F04300E95D5C /* ParkingChooseLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */; };
+		295C298D28B547A600DFE7C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C298C28B547A600DFE7C2 /* HomeViewController.swift */; };
+		295C298F28B547C900DFE7C2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C298E28B547C900DFE7C2 /* HomeViewModel.swift */; };
+		295C299128B54B3200DFE7C2 /* ParkingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */; };
+		295EE17028C2389F00138D98 /* StatusVacancyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295EE16F28C2389F00138D98 /* StatusVacancyViewController.swift */; };
+		2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960710628AD28B300B70FB3 /* ParkingButton.swift */; };
+		2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2960710C28AD2BD200B70FB3 /* Colors.swift */; };
+		29825D5028B66BD600D5C828 /* ParkingStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29825D4F28B66BD600D5C828 /* ParkingStatusView.swift */; };
+		29BED93928C7735A001CEAA7 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BED93828C7735A001CEAA7 /* KeyboardViewController.swift */; };
+		29BEF05D28C26E2B00E49B30 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF05C28C26E2B00E49B30 /* ProfileViewController.swift */; };
+		29BEF05F28C26E4E00E49B30 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF05E28C26E4E00E49B30 /* ProfileViewModel.swift */; };
+		29BEF06328C2747600E49B30 /* ParkingBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF06228C2747600E49B30 /* ParkingBackButton.swift */; };
+		29BEF06628C27DAD00E49B30 /* ParkingCampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEF06528C27DAD00E49B30 /* ParkingCampView.swift */; };
+		29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051E928AEA63600120BEC /* RegisterUserViewController.swift */; };
+		29C051EC28AEA68800120BEC /* RegisterUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051EB28AEA68800120BEC /* RegisterUserViewModel.swift */; };
+		29C051EF28AEA75600120BEC /* ParkingLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051EE28AEA75600120BEC /* ParkingLogoImageView.swift */; };
+		29C051F228AEAA7700120BEC /* ParkingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C051F128AEAA7700120BEC /* ParkingLabel.swift */; };
 		29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0137F28ABE34500D08480 /* AppDelegate.swift */; };
 		29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0138128ABE34500D08480 /* SceneDelegate.swift */; };
 		29D0138428ABE34500D08480 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0138328ABE34500D08480 /* ViewController.swift */; };
 		29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29D0138828ABE34500D08480 /* Parking.xcdatamodeld */; };
 		29D0138C28ABE34600D08480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D0138B28ABE34600D08480 /* Assets.xcassets */; };
 		29D0138F28ABE34600D08480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29D0138D28ABE34600D08480 /* LaunchScreen.storyboard */; };
+		29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139C28ABEA0D00D08480 /* LoginViewController.swift */; };
+		29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0139E28ABEA2800D08480 /* LoginViewModel.swift */; };
+		29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A028ABEC1600D08480 /* DefaultViewController.swift */; };
+		29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A228AC0D9D00D08480 /* ParkingTextField.swift */; };
+		29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28B3028B009AA0025A017 /* ParkingSwitch.swift */; };
+		29FB917E28C670360033C83C /* HistoricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FB917D28C670360033C83C /* HistoricTableViewCell.swift */; };
+		29FB918128C67F9C0033C83C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FB918028C67F9C0033C83C /* Data.swift */; };
+		7BF3931C45C51CF034FFF480 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B999665C39C4D3A169E889 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2917919C28CA28B100FC0E8A /* extensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionTextField.swift; sourceTree = "<group>"; };
+		292FE93928BE43C6001107C7 /* VacancyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyDetails.swift; sourceTree = "<group>"; };
+		292FE94028BE5903001107C7 /* ParkingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMenuView.swift; sourceTree = "<group>"; };
+		292FE94528BE9C5C001107C7 /* StatusVacancyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusVacancyViewModel.swift; sourceTree = "<group>"; };
+		2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyCollectionViewCell.swift; sourceTree = "<group>"; };
+		2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSeparatorView.swift; sourceTree = "<group>"; };
+		29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewController.swift; sourceTree = "<group>"; };
+		29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewModel.swift; sourceTree = "<group>"; };
+		29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingChooseLogoView.swift; sourceTree = "<group>"; };
+		295C298C28B547A600DFE7C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		295C298E28B547C900DFE7C2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingHeaderView.swift; sourceTree = "<group>"; };
+		295EE16F28C2389F00138D98 /* StatusVacancyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusVacancyViewController.swift; sourceTree = "<group>"; };
+		2960710628AD28B300B70FB3 /* ParkingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingButton.swift; sourceTree = "<group>"; };
+		2960710C28AD2BD200B70FB3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		29825D4F28B66BD600D5C828 /* ParkingStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingStatusView.swift; sourceTree = "<group>"; };
+		29BED93828C7735A001CEAA7 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		29BEF05C28C26E2B00E49B30 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		29BEF05E28C26E4E00E49B30 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		29BEF06228C2747600E49B30 /* ParkingBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingBackButton.swift; sourceTree = "<group>"; };
+		29BEF06528C27DAD00E49B30 /* ParkingCampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingCampView.swift; sourceTree = "<group>"; };
+		29C051E928AEA63600120BEC /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		29C051EB28AEA68800120BEC /* RegisterUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewModel.swift; sourceTree = "<group>"; };
+		29C051EE28AEA75600120BEC /* ParkingLogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLogoImageView.swift; sourceTree = "<group>"; };
+		29C051F128AEAA7700120BEC /* ParkingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLabel.swift; sourceTree = "<group>"; };
 		29D0137C28ABE34500D08480 /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29D0137F28ABE34500D08480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29D0138128ABE34500D08480 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +82,16 @@
 		29D0138B28ABE34600D08480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29D0138E28ABE34600D08480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29D0139028ABE34600D08480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29D0139C28ABEA0D00D08480 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		29D0139E28ABEA2800D08480 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		29D013A028ABEC1600D08480 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
+		29D013A228AC0D9D00D08480 /* ParkingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTextField.swift; sourceTree = "<group>"; };
+		29D28B3028B009AA0025A017 /* ParkingSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSwitch.swift; sourceTree = "<group>"; };
+		29FB917D28C670360033C83C /* HistoricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricTableViewCell.swift; sourceTree = "<group>"; };
+		29FB918028C67F9C0033C83C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
+		6655DD0647EDD17415379700 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
+		B5B999665C39C4D3A169E889 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +99,233 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BF3931C45C51CF034FFF480 /* Pods_Parking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2917919E28CA2C9900FC0E8A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2917919C28CA28B100FC0E8A /* extensionTextField.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2917919F28CA35E100FC0E8A /* Object Vacancy */ = {
+			isa = PBXGroup;
+			children = (
+				292FE93928BE43C6001107C7 /* VacancyDetails.swift */,
+			);
+			path = "Object Vacancy";
+			sourceTree = "<group>";
+		};
+		292FE93B28BE584A001107C7 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		292FE93C28BE585F001107C7 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				29825D4F28B66BD600D5C828 /* ParkingStatusView.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		292FE93D28BE5872001107C7 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				2940A87828B8FD9200989FF8 /* ParkingSeparatorView.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
+		292FE93E28BE5893001107C7 /* ChooseLogo */ = {
+			isa = PBXGroup;
+			children = (
+				29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */,
+			);
+			path = ChooseLogo;
+			sourceTree = "<group>";
+		};
+		292FE93F28BE58DA001107C7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				292FE94028BE5903001107C7 /* ParkingMenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		292FE94228BE9AD6001107C7 /* Status Vacancy */ = {
+			isa = PBXGroup;
+			children = (
+				295EE16F28C2389F00138D98 /* StatusVacancyViewController.swift */,
+				292FE94528BE9C5C001107C7 /* StatusVacancyViewModel.swift */,
+			);
+			path = "Status Vacancy";
+			sourceTree = "<group>";
+		};
+		2940A87528B8F83900989FF8 /* VacancyViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2940A87628B8F8D200989FF8 /* VacancyCollectionViewCell.swift */,
+			);
+			path = VacancyViewCell;
+			sourceTree = "<group>";
+		};
+		29466C1228B3CC8300E95D5C /* Register Parking */ = {
+			isa = PBXGroup;
+			children = (
+				29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */,
+				29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */,
+			);
+			path = "Register Parking";
+			sourceTree = "<group>";
+		};
+		29466C1728B3EFFB00E95D5C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				292FE93B28BE584A001107C7 /* Header */,
+				292FE93C28BE585F001107C7 /* Status */,
+				292FE93F28BE58DA001107C7 /* Menu */,
+				292FE93E28BE5893001107C7 /* ChooseLogo */,
+				292FE93D28BE5872001107C7 /* Separator */,
+				29BEF06428C27D7000E49B30 /* Camp */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		295C298B28B5477E00DFE7C2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				295C298C28B547A600DFE7C2 /* HomeViewController.swift */,
+				295C298E28B547C900DFE7C2 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2960710828AD2B6600B70FB3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				29BED93628C77316001CEAA7 /* Default */,
+				29BED93728C77323001CEAA7 /* Keyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2960710928AD2B7100B70FB3 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				2917919E28CA2C9900FC0E8A /* Extension */,
+				29D013A228AC0D9D00D08480 /* ParkingTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		2960710A28AD2B8100B70FB3 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				29BEF06128C2743E00E49B30 /* Default Buttons */,
+				29BEF06028C2743000E49B30 /* Back Button */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		2960710B28AD2BAA00B70FB3 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				2960710C28AD2BD200B70FB3 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		29BED93628C77316001CEAA7 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				29D013A028ABEC1600D08480 /* DefaultViewController.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		29BED93728C77323001CEAA7 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				29BED93828C7735A001CEAA7 /* KeyboardViewController.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		29BEF05B28C26DFE00E49B30 /* Perfil */ = {
+			isa = PBXGroup;
+			children = (
+				29BEF05C28C26E2B00E49B30 /* ProfileViewController.swift */,
+				29BEF05E28C26E4E00E49B30 /* ProfileViewModel.swift */,
+			);
+			path = Perfil;
+			sourceTree = "<group>";
+		};
+		29BEF06028C2743000E49B30 /* Back Button */ = {
+			isa = PBXGroup;
+			children = (
+				29BEF06228C2747600E49B30 /* ParkingBackButton.swift */,
+			);
+			path = "Back Button";
+			sourceTree = "<group>";
+		};
+		29BEF06128C2743E00E49B30 /* Default Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2960710628AD28B300B70FB3 /* ParkingButton.swift */,
+			);
+			path = "Default Buttons";
+			sourceTree = "<group>";
+		};
+		29BEF06428C27D7000E49B30 /* Camp */ = {
+			isa = PBXGroup;
+			children = (
+				29BEF06528C27DAD00E49B30 /* ParkingCampView.swift */,
+			);
+			path = Camp;
+			sourceTree = "<group>";
+		};
+		29C051E828AEA5D200120BEC /* Register User */ = {
+			isa = PBXGroup;
+			children = (
+				29C051E928AEA63600120BEC /* RegisterUserViewController.swift */,
+				29C051EB28AEA68800120BEC /* RegisterUserViewModel.swift */,
+			);
+			path = "Register User";
+			sourceTree = "<group>";
+		};
+		29C051ED28AEA71500120BEC /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				29C051EE28AEA75600120BEC /* ParkingLogoImageView.swift */,
+			);
+			path = ImageView;
+			sourceTree = "<group>";
+		};
+		29C051F028AEAA5200120BEC /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				29C051F128AEAA7700120BEC /* ParkingLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
 		29D0137328ABE34500D08480 = {
 			isa = PBXGroup;
 			children = (
 				29D0137E28ABE34500D08480 /* Parking */,
 				29D0137D28ABE34500D08480 /* Products */,
+				EFDFC097F336641C862EC951 /* Pods */,
+				683B050E7963E4F6E7B91BAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +340,11 @@
 		29D0137E28ABE34500D08480 /* Parking */ = {
 			isa = PBXGroup;
 			children = (
+				29D0139628ABE92900D08480 /* ParkingKit */,
+				29D0139828ABE94F00D08480 /* Repository */,
+				29D0139728ABE93700D08480 /* Model */,
+				29D0139928ABE95A00D08480 /* Sections */,
+				29D0139A28ABE9AD00D08480 /* Views */,
 				29D0137F28ABE34500D08480 /* AppDelegate.swift */,
 				29D0138128ABE34500D08480 /* SceneDelegate.swift */,
 				29D0138328ABE34500D08480 /* ViewController.swift */,
@@ -67,6 +356,109 @@
 			path = Parking;
 			sourceTree = "<group>";
 		};
+		29D0139628ABE92900D08480 /* ParkingKit */ = {
+			isa = PBXGroup;
+			children = (
+				2960710B28AD2BAA00B70FB3 /* Colors */,
+				2960710828AD2B6600B70FB3 /* ViewController */,
+				29466C1728B3EFFB00E95D5C /* View */,
+				2960710928AD2B7100B70FB3 /* TextField */,
+				2960710A28AD2B8100B70FB3 /* Button */,
+				29C051ED28AEA71500120BEC /* ImageView */,
+				29C051F028AEAA5200120BEC /* Label */,
+				29D28B3228B009B50025A017 /* Switch */,
+			);
+			path = ParkingKit;
+			sourceTree = "<group>";
+		};
+		29D0139728ABE93700D08480 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29FB917F28C67F450033C83C /* Mock */,
+				2917919F28CA35E100FC0E8A /* Object Vacancy */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		29D0139828ABE94F00D08480 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		29D0139928ABE95A00D08480 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				29D0139B28ABE9C100D08480 /* Login */,
+				29C051E828AEA5D200120BEC /* Register User */,
+				29466C1228B3CC8300E95D5C /* Register Parking */,
+				295C298B28B5477E00DFE7C2 /* Home */,
+				292FE94228BE9AD6001107C7 /* Status Vacancy */,
+				29BEF05B28C26DFE00E49B30 /* Perfil */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		29D0139A28ABE9AD00D08480 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2940A87528B8F83900989FF8 /* VacancyViewCell */,
+				29FB917C28C670040033C83C /* HistoricViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		29D0139B28ABE9C100D08480 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				29D0139C28ABEA0D00D08480 /* LoginViewController.swift */,
+				29D0139E28ABEA2800D08480 /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		29D28B3228B009B50025A017 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				29D28B3028B009AA0025A017 /* ParkingSwitch.swift */,
+			);
+			path = Switch;
+			sourceTree = "<group>";
+		};
+		29FB917C28C670040033C83C /* HistoricViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				29FB917D28C670360033C83C /* HistoricTableViewCell.swift */,
+			);
+			path = HistoricViewCell;
+			sourceTree = "<group>";
+		};
+		29FB917F28C67F450033C83C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				29FB918028C67F9C0033C83C /* Data.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		683B050E7963E4F6E7B91BAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5B999665C39C4D3A169E889 /* Pods_Parking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFDFC097F336641C862EC951 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */,
+				6655DD0647EDD17415379700 /* Pods-Parking.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +466,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29D0139328ABE34600D08480 /* Build configuration list for PBXNativeTarget "Parking" */;
 			buildPhases = (
+				0ECAC3F85A9F9F79B1F6628E /* [CP] Check Pods Manifest.lock */,
 				29D0137828ABE34500D08480 /* Sources */,
 				29D0137928ABE34500D08480 /* Frameworks */,
 				29D0137A28ABE34500D08480 /* Resources */,
+				0400E0571BC4C121A476494D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,15 +526,89 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0400E0571BC4C121A476494D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parking/Pods-Parking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parking/Pods-Parking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Parking/Pods-Parking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0ECAC3F85A9F9F79B1F6628E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Parking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		29D0137828ABE34500D08480 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */,
 				29D0138A28ABE34500D08480 /* Parking.xcdatamodeld in Sources */,
+				295C298D28B547A600DFE7C2 /* HomeViewController.swift in Sources */,
+				295C298F28B547C900DFE7C2 /* HomeViewModel.swift in Sources */,
+				29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */,
+				29466C1928B3F04300E95D5C /* ParkingChooseLogoView.swift in Sources */,
+				2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */,
 				29D0138428ABE34500D08480 /* ViewController.swift in Sources */,
+				29BEF05F28C26E4E00E49B30 /* ProfileViewModel.swift in Sources */,
+				29BEF05D28C26E2B00E49B30 /* ProfileViewController.swift in Sources */,
+				29D0139F28ABEA2800D08480 /* LoginViewModel.swift in Sources */,
+				29BED93928C7735A001CEAA7 /* KeyboardViewController.swift in Sources */,
+				29C051EF28AEA75600120BEC /* ParkingLogoImageView.swift in Sources */,
+				292FE93A28BE43C6001107C7 /* VacancyDetails.swift in Sources */,
+				29FB918128C67F9C0033C83C /* Data.swift in Sources */,
+				29FB917E28C670360033C83C /* HistoricTableViewCell.swift in Sources */,
+				295C299128B54B3200DFE7C2 /* ParkingHeaderView.swift in Sources */,
 				29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */,
+				29C051EC28AEA68800120BEC /* RegisterUserViewModel.swift in Sources */,
+				29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */,
+				29C051F228AEAA7700120BEC /* ParkingLabel.swift in Sources */,
+				2917919D28CA28B100FC0E8A /* extensionTextField.swift in Sources */,
+				295EE17028C2389F00138D98 /* StatusVacancyViewController.swift in Sources */,
+				2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */,
+				292FE94628BE9C5C001107C7 /* StatusVacancyViewModel.swift in Sources */,
+				29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */,
+				292FE94128BE5903001107C7 /* ParkingMenuView.swift in Sources */,
+				2940A87728B8F8D200989FF8 /* VacancyCollectionViewCell.swift in Sources */,
+				29BEF06628C27DAD00E49B30 /* ParkingCampView.swift in Sources */,
+				29D0139D28ABEA0D00D08480 /* LoginViewController.swift in Sources */,
+				29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */,
+				29825D5028B66BD600D5C828 /* ParkingStatusView.swift in Sources */,
+				2940A87928B8FD9200989FF8 /* ParkingSeparatorView.swift in Sources */,
+				29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */,
 				29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */,
+				29BEF06328C2747600E49B30 /* ParkingBackButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +744,7 @@
 		};
 		29D0139428ABE34600D08480 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -303,6 +772,7 @@
 		};
 		29D0139528ABE34600D08480 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6655DD0647EDD17415379700 /* Pods-Parking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
