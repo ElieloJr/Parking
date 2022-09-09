@@ -44,11 +44,12 @@ class HomeViewController: DefaultViewController {
     private lazy var bottomMessageView: UIView = {
         let view = UIView()
         view.backgroundColor = Colors.defaultBackground
-        view.layer.cornerRadius = 40
+        view.layer.cornerRadius = 30
         view.translatesAutoresizingMaskIntoConstraints = false
         
         let messageLabel = ParkingLabel(content: "Escolha uma vaga para checkin ou checkout",
-                                        size: 17, type: .darkGreyMessage)
+                                        size: 16,
+                                        type: .darkGreyMessage)
         view.addSubview(messageLabel)
         NSLayoutConstraint.activate([
             messageLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
@@ -113,8 +114,8 @@ class HomeViewController: DefaultViewController {
             
             bottomMessageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomMessageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomMessageView.heightAnchor.constraint(equalToConstant: 50),
-            bottomMessageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            bottomMessageView.heightAnchor.constraint(equalToConstant: view.frame.width/6),
+            bottomMessageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 25)
         ])
     }
     

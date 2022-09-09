@@ -19,7 +19,8 @@ class StatusVacancyViewController: KeyboardViewController {
         return view
     }()
     private lazy var titleModal = ParkingLabel(content: "Cadastrar Veículo".uppercased(),
-                                               size: 20, type: .darkGreyMessage)
+                                               size: Int(view.frame.width)/18,
+                                               type: .darkGreyMessage)
     private lazy var ownerName = ParkingTextField(text: "Dono", type: .Normal)
     private lazy var model = ParkingTextField(text: "Modelo (Nome do Carro)", type: .Normal)
     private lazy var color = ParkingTextField(text: "Cor", type: .Normal)
@@ -31,6 +32,13 @@ class StatusVacancyViewController: KeyboardViewController {
                                                   type: .primary)
     
     private lazy var picker = UIPickerView()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
     
     let viewModel = StatusVacancyViewModel()
     
@@ -52,16 +60,20 @@ class StatusVacancyViewController: KeyboardViewController {
     private func setupView() {
         view.backgroundColor = .clear
         viewModel.delegate = self
+        navigationController?.isNavigationBarHidden = true
         
         view.addSubview(viewBackground)
         
         viewBackground.addSubview(titleModal)
-        viewBackground.addSubview(ownerName)
-        viewBackground.addSubview(model)
-        viewBackground.addSubview(color)
-        viewBackground.addSubview(licence)
-        viewBackground.addSubview(isMercosul)
-        viewBackground.addSubview(isMercosulLabel)
+        viewBackground.addSubview(scrollView)
+        
+        scrollView.addSubview(ownerName)
+        scrollView.addSubview(model)
+        scrollView.addSubview(color)
+        scrollView.addSubview(licence)
+        scrollView.addSubview(isMercosul)
+        scrollView.addSubview(isMercosulLabel)
+        
         viewBackground.addSubview(addCarButtom)
     }
     
@@ -88,18 +100,20 @@ class StatusVacancyViewController: KeyboardViewController {
     
     private func setupConstraints() {
         let viewHeight = view.frame.height/2
+        let width = view.frame.width
+        
         if !isMercosul.isHidden {
             NSLayoutConstraint.activate([
                 viewBackground.heightAnchor.constraint(equalToConstant: viewHeight),
                 
-                isMercosul.topAnchor.constraint(equalTo: licence.bottomAnchor, constant: 10),
+                isMercosul.topAnchor.constraint(equalTo: licence.bottomAnchor, constant: width/40),
                 isMercosul.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             
                 isMercosulLabel.centerYAnchor.constraint(equalTo: isMercosul.centerYAnchor, constant: 2),
                 isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10),
             ])
         } else {
-            viewBackground.heightAnchor.constraint(equalToConstant: viewHeight-50).isActive = true
+            viewBackground.heightAnchor.constraint(equalToConstant: viewHeight-(width/9)).isActive = true
         }
         
         NSLayoutConstraint.activate([
@@ -107,33 +121,39 @@ class StatusVacancyViewController: KeyboardViewController {
             viewBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             viewBackground.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            titleModal.topAnchor.constraint(equalTo: viewBackground.topAnchor, constant: 24),
+            titleModal.topAnchor.constraint(equalTo: viewBackground.topAnchor, constant: width/22),
             titleModal.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            ownerName.topAnchor.constraint(equalTo: viewBackground.topAnchor, constant: 60),
+            scrollView.topAnchor.constraint(equalTo: titleModal.bottomAnchor, constant: width/50),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: addCarButtom.topAnchor),
+            
+            ownerName.topAnchor.constraint(equalTo: scrollView.topAnchor),
             ownerName.leadingAnchor.constraint(equalTo: viewBackground.leadingAnchor, constant: 20),
             ownerName.trailingAnchor.constraint(equalTo: viewBackground.trailingAnchor, constant: -20),
-            ownerName.heightAnchor.constraint(equalToConstant: 50),
+            ownerName.heightAnchor.constraint(equalToConstant: width/7),
             
-            model.topAnchor.constraint(equalTo: ownerName.bottomAnchor, constant: 10),
+            model.topAnchor.constraint(equalTo: ownerName.bottomAnchor, constant: width/40),
             model.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             model.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
-            model.heightAnchor.constraint(equalToConstant: 50),
+            model.heightAnchor.constraint(equalToConstant: width/7),
             
-            color.topAnchor.constraint(equalTo: model.bottomAnchor, constant: 10),
+            color.topAnchor.constraint(equalTo: model.bottomAnchor, constant: width/40),
             color.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             color.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
-            color.heightAnchor.constraint(equalToConstant: 50),
+            color.heightAnchor.constraint(equalToConstant: width/7),
             
-            licence.topAnchor.constraint(equalTo: color.bottomAnchor, constant: 10),
+            licence.topAnchor.constraint(equalTo: color.bottomAnchor, constant: width/40),
             licence.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             licence.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
-            licence.heightAnchor.constraint(equalToConstant: 50),
+            licence.heightAnchor.constraint(equalToConstant: width/7),
+            licence.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50),
             
             addCarButtom.leadingAnchor.constraint(equalTo: ownerName.leadingAnchor),
             addCarButtom.trailingAnchor.constraint(equalTo: ownerName.trailingAnchor),
-            addCarButtom.heightAnchor.constraint(equalToConstant: 70),
-            addCarButtom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+            addCarButtom.heightAnchor.constraint(equalToConstant: width/7),
+            addCarButtom.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -width/12)
         ])
         
     }
