@@ -67,11 +67,16 @@ class VacancyCollectionViewCell: UICollectionViewCell {
             bottomLine.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
             
             numVacancy.centerXAnchor.constraint(equalTo: vacancyEmpty.centerXAnchor),
-            numVacancy.centerYAnchor.constraint(equalTo: vacancyEmpty.centerYAnchor, constant: 4)
+            numVacancy.centerYAnchor.constraint(equalTo: vacancyEmpty.centerYAnchor, constant: 4),
+            
+            vacancyEmpty.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            vacancyEmpty.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            vacancyEmpty.widthAnchor.constraint(equalToConstant: self.frame.width/1.2),
+            vacancyEmpty.heightAnchor.constraint(equalToConstant: self.frame.height/1.5)
         ])
     }
     
-    func configureCell(position: Int, vacancy: VacancyDetails) {
+    func configureCell(position: Int, vacancy: ParkingApiResponse) {
         if ((position%2) == 0) {
             positionCar(vacancy: vacancy, position: .Left)
         } else {
@@ -82,46 +87,20 @@ class VacancyCollectionViewCell: UICollectionViewCell {
         else { numVacancy.text = "V\(position)" }
     }
     
-    func positionCar(vacancy: VacancyDetails, position: PositionVacancy) {
+    func positionCar(vacancy: ParkingApiResponse, position: PositionVacancy) {
         switch position {
         case .Left:
-            self.addSubview(endLine)
-            
-            NSLayoutConstraint.activate([
-                endLine.topAnchor.constraint(equalTo: topLine.topAnchor),
-                endLine.leadingAnchor.constraint(equalTo: topLine.leadingAnchor),
-                endLine.widthAnchor.constraint(equalToConstant: 2),
-                endLine.heightAnchor.constraint(equalToConstant: self.frame.height-10),
-
-                vacancyEmpty.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                vacancyEmpty.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 10),
-                vacancyEmpty.widthAnchor.constraint(equalToConstant: self.frame.width/1.2),
-                vacancyEmpty.heightAnchor.constraint(equalToConstant: self.frame.height/1.5)
-            ])
             occupiedVacancy(verify: vacancy)
             
         case .Right:
-            self.addSubview(endLine)
             carImage.image = UIImage(named: "RightCar")
-            
-            NSLayoutConstraint.activate([
-                endLine.topAnchor.constraint(equalTo: topLine.topAnchor),
-                endLine.leadingAnchor.constraint(equalTo: topLine.trailingAnchor),
-                endLine.widthAnchor.constraint(equalToConstant: 2),
-                endLine.heightAnchor.constraint(equalToConstant: self.frame.height-10),
-                
-                vacancyEmpty.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-                vacancyEmpty.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: -10),
-                vacancyEmpty.widthAnchor.constraint(equalToConstant: self.frame.width/1.2),
-                vacancyEmpty.heightAnchor.constraint(equalToConstant: self.frame.height/1.5)
-            ])
             occupiedVacancy(verify: vacancy)
         }
     }
     
-    func occupiedVacancy(verify: VacancyDetails) {
-        if !verify.isEmpty {
-            license.text = verify.licence
+    func occupiedVacancy(verify: ParkingApiResponse) {
+        if !verify.license.isEmpty {
+            license.text = verify.license
             self.addSubview(carImage)
             self.addSubview(license)
             

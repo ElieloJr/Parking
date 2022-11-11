@@ -10,10 +10,9 @@ import UIKit
 class HomeViewController: DefaultViewController {
 
     private lazy var welcomeUser = ParkingHeaderView()
-    
     private lazy var statusParking = ParkingStatusView()
-    
     private lazy var menu = ParkingMenuView()
+    private lazy var refreshControl = UIRefreshControl()
     
     public lazy var parkingCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -28,19 +27,13 @@ class HomeViewController: DefaultViewController {
         collectionView.backgroundColor = Colors.darkGrey
         collectionView.showsVerticalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let faixa = ParkingSeparatorView(color: .white)
-        
-        collectionView.addSubview(faixa)
-        
-        faixa.centerXAnchor.constraint(equalTo: collectionView.centerXAnchor).isActive = true
-        faixa.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor).isActive = true
-        faixa.widthAnchor.constraint(equalToConstant: 2).isActive = true
-        faixa.heightAnchor.constraint(equalToConstant: ((view.frame.width/3)-10)*6).isActive = true
-        
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+
+        collectionView.addSubview(refreshControl)
         return collectionView
     }()
     
+    let faixa = ParkingSeparatorView(color: .white)
     private lazy var bottomMessageView: UIView = {
         let view = UIView()
         view.backgroundColor = Colors.defaultBackground
@@ -61,9 +54,7 @@ class HomeViewController: DefaultViewController {
     private let viewModel = HomeViewModel()
     
     override func viewDidAppear(_ animated: Bool) {
-        viewModel.filterVacancies()
-        statusParking.vacanciesFilledValue.text = "\(viewModel.vacanciesFilled)"
-        statusParking.vacanciesAvailableValue.text = "\(viewModel.vacanciesAvailable)"
+        viewModel.getCars()
     }
     
     override func viewDidLoad() {
@@ -75,11 +66,14 @@ class HomeViewController: DefaultViewController {
     }
     
     private func setupView() {
-        view.addSubview(welcomeUser)
-        view.addSubview(statusParking)
-        view.addSubview(parkingCollectionView)
-        view.addSubview(menu)
-        view.addSubview(bottomMessageView)
+        viewModel.delegate = self
+        
+        addView(welcomeUser)
+        addView(statusParking)
+        addView(parkingCollectionView)
+        addView(faixa)
+        addView(menu)
+        addView(bottomMessageView)
     }
     
     private func setupUI() {
@@ -112,6 +106,11 @@ class HomeViewController: DefaultViewController {
             parkingCollectionView.heightAnchor.constraint(equalToConstant: view.frame.height-20),
             parkingCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
+            faixa.topAnchor.constraint(equalTo: statusParking.bottomAnchor),
+            faixa.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            faixa.widthAnchor.constraint(equalToConstant: 2),
+            faixa.heightAnchor.constraint(equalToConstant: view.frame.height-20),
+            
             bottomMessageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             bottomMessageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomMessageView.heightAnchor.constraint(equalToConstant: view.frame.width/6),
@@ -132,6 +131,13 @@ class HomeViewController: DefaultViewController {
     }
     @objc func exitScreen() {
         dismiss(animated: true, completion: nil)
+    }
+    @objc func refreshData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.getCars()
+            self.refreshControl.endRefreshing()
+            self.refreshControl.isHidden = true
+        }
     }
 }
 
@@ -158,5 +164,24 @@ extension HomeViewController: UICollectionViewDataSource {
         let index = indexPath.row
         cell.configureCell(position: index, vacancy: viewModel.parking[index])
         return cell
+    }
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func alertError(with message: String) {
+        alertDialog(title: "Erro de API",
+                    message: message,
+                    handler: { _ in self.viewModel.getCars() }
+        )
+    }
+    
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.parkingCollectionView.reloadData()
+            self.statusParking.vacanciesFilledValue.text = self.viewModel.getVacanciesFilled()
+            self.statusParking.vacanciesAvailableValue.text = self.viewModel.getVacanciesAvailable()
+            print(self.viewModel.parking.count)
+        }
+        print("ReloadData: \(self.viewModel.parking)")
     }
 }

@@ -16,6 +16,9 @@
 		29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */; };
 		29466C1628B3CD0000E95D5C /* RegisterParkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */; };
 		29466C1928B3F04300E95D5C /* ParkingChooseLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */; };
+		295B444728CB7122004AC10F /* ParkingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295B444628CB7122004AC10F /* ParkingAPI.swift */; };
+		295B444928CB717B004AC10F /* ParkingApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295B444828CB717B004AC10F /* ParkingApiResponse.swift */; };
+		295B444E28CB754C004AC10F /* ClientApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295B444D28CB754C004AC10F /* ClientApiResponse.swift */; };
 		295C298D28B547A600DFE7C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C298C28B547A600DFE7C2 /* HomeViewController.swift */; };
 		295C298F28B547C900DFE7C2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C298E28B547C900DFE7C2 /* HomeViewModel.swift */; };
 		295C299128B54B3200DFE7C2 /* ParkingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */; };
@@ -43,12 +46,14 @@
 		29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A028ABEC1600D08480 /* DefaultViewController.swift */; };
 		29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D013A228AC0D9D00D08480 /* ParkingTextField.swift */; };
 		29D28B3128B009AA0025A017 /* ParkingSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28B3028B009AA0025A017 /* ParkingSwitch.swift */; };
+		29D417CA28DCA628008448F1 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D417C928DCA628008448F1 /* ExtensionViewController.swift */; };
 		29FB917E28C670360033C83C /* HistoricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FB917D28C670360033C83C /* HistoricTableViewCell.swift */; };
 		29FB918128C67F9C0033C83C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FB918028C67F9C0033C83C /* Data.swift */; };
 		7BF3931C45C51CF034FFF480 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B999665C39C4D3A169E889 /* Pods_Parking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2916ED1F28CF8196000D6717 /* SimulationCallApi.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SimulationCallApi.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		2917919C28CA28B100FC0E8A /* extensionTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionTextField.swift; sourceTree = "<group>"; };
 		292FE93928BE43C6001107C7 /* VacancyDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyDetails.swift; sourceTree = "<group>"; };
 		292FE94028BE5903001107C7 /* ParkingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMenuView.swift; sourceTree = "<group>"; };
@@ -58,6 +63,9 @@
 		29466C1328B3CCBB00E95D5C /* RegisterParkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewController.swift; sourceTree = "<group>"; };
 		29466C1528B3CD0000E95D5C /* RegisterParkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterParkingViewModel.swift; sourceTree = "<group>"; };
 		29466C1828B3F04300E95D5C /* ParkingChooseLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingChooseLogoView.swift; sourceTree = "<group>"; };
+		295B444628CB7122004AC10F /* ParkingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingAPI.swift; sourceTree = "<group>"; };
+		295B444828CB717B004AC10F /* ParkingApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingApiResponse.swift; sourceTree = "<group>"; };
+		295B444D28CB754C004AC10F /* ClientApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientApiResponse.swift; sourceTree = "<group>"; };
 		295C298C28B547A600DFE7C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		295C298E28B547C900DFE7C2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		295C299028B54B3200DFE7C2 /* ParkingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingHeaderView.swift; sourceTree = "<group>"; };
@@ -87,6 +95,7 @@
 		29D013A028ABEC1600D08480 /* DefaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewController.swift; sourceTree = "<group>"; };
 		29D013A228AC0D9D00D08480 /* ParkingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingTextField.swift; sourceTree = "<group>"; };
 		29D28B3028B009AA0025A017 /* ParkingSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSwitch.swift; sourceTree = "<group>"; };
+		29D417C928DCA628008448F1 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		29FB917D28C670360033C83C /* HistoricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricTableViewCell.swift; sourceTree = "<group>"; };
 		29FB918028C67F9C0033C83C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		42EC434950B8DC93F20E0D33 /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2916ED2028CF81FE000D6717 /* Simulation Request */ = {
+			isa = PBXGroup;
+			children = (
+				2916ED1F28CF8196000D6717 /* SimulationCallApi.playground */,
+			);
+			path = "Simulation Request";
+			sourceTree = "<group>";
+		};
 		2917919E28CA2C9900FC0E8A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +218,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		295B444A28CB74F9004AC10F /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				295B444C28CB7520004AC10F /* Client */,
+				295B444B28CB7511004AC10F /* Parking */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		295B444B28CB7511004AC10F /* Parking */ = {
+			isa = PBXGroup;
+			children = (
+				295B444828CB717B004AC10F /* ParkingApiResponse.swift */,
+			);
+			path = Parking;
+			sourceTree = "<group>";
+		};
+		295B444C28CB7520004AC10F /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				295B444D28CB754C004AC10F /* ClientApiResponse.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		295C298B28B5477E00DFE7C2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +255,7 @@
 		2960710828AD2B6600B70FB3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				29D417C828DCA605008448F1 /* Extension */,
 				29BED93628C77316001CEAA7 /* Default */,
 				29BED93728C77323001CEAA7 /* Keyboard */,
 			);
@@ -345,8 +388,8 @@
 				29D0139728ABE93700D08480 /* Model */,
 				29D0139928ABE95A00D08480 /* Sections */,
 				29D0139A28ABE9AD00D08480 /* Views */,
-				29D0137F28ABE34500D08480 /* AppDelegate.swift */,
 				29D0138128ABE34500D08480 /* SceneDelegate.swift */,
+				29D0137F28ABE34500D08480 /* AppDelegate.swift */,
 				29D0138328ABE34500D08480 /* ViewController.swift */,
 				29D0138B28ABE34600D08480 /* Assets.xcassets */,
 				29D0138D28ABE34600D08480 /* LaunchScreen.storyboard */,
@@ -376,6 +419,7 @@
 			children = (
 				29FB917F28C67F450033C83C /* Mock */,
 				2917919F28CA35E100FC0E8A /* Object Vacancy */,
+				295B444A28CB74F9004AC10F /* Response */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,6 +427,8 @@
 		29D0139828ABE94F00D08480 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				2916ED2028CF81FE000D6717 /* Simulation Request */,
+				295B444628CB7122004AC10F /* ParkingAPI.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -424,6 +470,14 @@
 				29D28B3028B009AA0025A017 /* ParkingSwitch.swift */,
 			);
 			path = Switch;
+			sourceTree = "<group>";
+		};
+		29D417C828DCA605008448F1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				29D417C928DCA628008448F1 /* ExtensionViewController.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		29FB917C28C670040033C83C /* HistoricViewCell */ = {
@@ -579,6 +633,7 @@
 				295C298F28B547C900DFE7C2 /* HomeViewModel.swift in Sources */,
 				29C051EA28AEA63600120BEC /* RegisterUserViewController.swift in Sources */,
 				29466C1928B3F04300E95D5C /* ParkingChooseLogoView.swift in Sources */,
+				295B444928CB717B004AC10F /* ParkingApiResponse.swift in Sources */,
 				2960710D28AD2BD200B70FB3 /* Colors.swift in Sources */,
 				29D0138428ABE34500D08480 /* ViewController.swift in Sources */,
 				29BEF05F28C26E4E00E49B30 /* ProfileViewModel.swift in Sources */,
@@ -593,8 +648,10 @@
 				29D0138028ABE34500D08480 /* AppDelegate.swift in Sources */,
 				29C051EC28AEA68800120BEC /* RegisterUserViewModel.swift in Sources */,
 				29D013A128ABEC1600D08480 /* DefaultViewController.swift in Sources */,
+				295B444E28CB754C004AC10F /* ClientApiResponse.swift in Sources */,
 				29C051F228AEAA7700120BEC /* ParkingLabel.swift in Sources */,
 				2917919D28CA28B100FC0E8A /* extensionTextField.swift in Sources */,
+				295B444728CB7122004AC10F /* ParkingAPI.swift in Sources */,
 				295EE17028C2389F00138D98 /* StatusVacancyViewController.swift in Sources */,
 				2960710728AD28B300B70FB3 /* ParkingButton.swift in Sources */,
 				292FE94628BE9C5C001107C7 /* StatusVacancyViewModel.swift in Sources */,
@@ -606,6 +663,7 @@
 				29D013A328AC0D9D00D08480 /* ParkingTextField.swift in Sources */,
 				29825D5028B66BD600D5C828 /* ParkingStatusView.swift in Sources */,
 				2940A87928B8FD9200989FF8 /* ParkingSeparatorView.swift in Sources */,
+				29D417CA28DCA628008448F1 /* ExtensionViewController.swift in Sources */,
 				29466C1428B3CCBB00E95D5C /* RegisterParkingViewController.swift in Sources */,
 				29D0138228ABE34500D08480 /* SceneDelegate.swift in Sources */,
 				29BEF06328C2747600E49B30 /* ParkingBackButton.swift in Sources */,
