@@ -42,7 +42,7 @@ class StatusVacancyViewController: KeyboardViewController {
     
     let viewModel = StatusVacancyViewModel()
     
-    convenience init(vacancy: VacancyDetails) {
+    convenience init(vacancy: ParkingApiResponse) {
         self.init()
         
         configureWithCar(with: vacancy)
@@ -80,11 +80,7 @@ class StatusVacancyViewController: KeyboardViewController {
     private func setupUI() {
         color.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showPicker(_:))))
         isMercosul.addTarget(self, action: #selector(setTextField), for: UIControl.Event.valueChanged)
-        if !isMercosul.isHidden {
-            addCarButtom.addTarget(self, action: #selector(self.registerCar), for: .touchUpInside)
-        } else {
-            addCarButtom.addTarget(self, action: #selector(self.checkoutCar), for: .touchUpInside)
-        }
+        addCarButtom.addTarget(self, action: #selector(self.registerCar), for: .touchUpInside)
     }
     
     private func configKeyboard() {
@@ -99,7 +95,7 @@ class StatusVacancyViewController: KeyboardViewController {
     }
     
     private func setupConstraints() {
-        let viewHeight = view.frame.height/2
+        let viewHeight = view.frame.height/1.95
         let width = view.frame.width
         
         if !isMercosul.isHidden {
@@ -113,7 +109,7 @@ class StatusVacancyViewController: KeyboardViewController {
                 isMercosulLabel.leadingAnchor.constraint(equalTo: isMercosul.trailingAnchor, constant: 10),
             ])
         } else {
-            viewBackground.heightAnchor.constraint(equalToConstant: viewHeight-(width/9)).isActive = true
+            viewBackground.heightAnchor.constraint(equalToConstant: viewHeight-(width/3)).isActive = true
         }
         
         NSLayoutConstraint.activate([
@@ -158,17 +154,18 @@ class StatusVacancyViewController: KeyboardViewController {
         
     }
     
-    private func configureWithCar(with car: VacancyDetails) {
-        if !car.isEmpty {
+    private func configureWithCar(with car: ParkingApiResponse) {
+        if !car.license.isEmpty {
             self.titleModal.text = "Consultar Veículo".uppercased()
             self.ownerName.text = car.ownerName
             
             self.model.text = car.model
             self.color.text = car.color
-            self.licence.text = car.licence
+            self.licence.text = car.license
             self.isMercosul.isHidden = true
             self.isMercosulLabel.isHidden = true
             addCarButtom.setTitle("Fazer Checkout", for: .normal)
+            addCarButtom.addTarget(self, action: #selector(self.checkoutCar), for: .touchUpInside)
             
             self.ownerName.isUserInteractionEnabled = false
             self.model.isUserInteractionEnabled = false
