@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HomeViewController: DefaultViewController {
 
@@ -21,8 +23,7 @@ class HomeViewController: DefaultViewController {
         layout.itemSize = CGSize(width: (view.frame.width/2.4), height: (view.frame.width/3)-10)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        collectionView.delegate = self
         collectionView.register(VacancyCollectionViewCell.self, forCellWithReuseIdentifier: VacancyCollectionViewCell.identifier)
         collectionView.backgroundColor = Colors.darkGrey
         collectionView.showsVerticalScrollIndicator = false
@@ -52,6 +53,7 @@ class HomeViewController: DefaultViewController {
     }()
     
     private let viewModel = HomeViewModel()
+    private var bag = DisposeBag()
     
     override func viewDidAppear(_ animated: Bool) {
         viewModel.getCars()
@@ -74,6 +76,20 @@ class HomeViewController: DefaultViewController {
         addView(faixa)
         addView(menu)
         addView(bottomMessageView)
+        
+        // MARK: Configuração da CELL
+        parkingCollectionView.rx.setDelegate(self).disposed(by: bag)
+        viewModel.teste.bind(to: parkingCollectionView.rx.items(
+            cellIdentifier: VacancyCollectionViewCell.identifier,
+            cellType: VacancyCollectionViewCell.self)) { (row, item, cell) in
+                cell.configureCell(position: row, vacancy: item)
+        }.disposed(by: bag)
+        
+        // MARK: Configuração do delegate da CELL
+        parkingCollectionView.rx.itemSelected.subscribe(onNext: { indexPath in
+            print(indexPath.row)
+            self.viewModel.showDetailsOF(indexCar: indexPath)
+        }).disposed(by: bag)
     }
     
     private func setupUI() {
@@ -134,7 +150,7 @@ class HomeViewController: DefaultViewController {
     }
     @objc func refreshData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.viewModel.getCars()
+//            self.viewModel.getCars()
             self.refreshControl.endRefreshing()
             self.refreshControl.isHidden = true
         }
@@ -145,6 +161,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         menu.isHidden = true
         let vacancy = viewModel.parking[indexPath.row]
+
         let statusVacancy = StatusVacancyViewController(vacancy: vacancy)
         let rootDetailController = UINavigationController(rootViewController: statusVacancy)
         statusVacancy.modalPresentationStyle = .overCurrentContext
@@ -162,17 +179,23 @@ extension HomeViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VacancyCollectionViewCell.identifier, for: indexPath) as? VacancyCollectionViewCell
         else { return UICollectionViewCell() }
         let index = indexPath.row
-        cell.configureCell(position: index, vacancy: viewModel.parking[index])
-        return cell
+        cell.configureCell(position: index,
+                           vacancy: viewModel.parking[index])
+
+        return UICollectionViewCell()
     }
 }
 
 extension HomeViewController: HomeViewDelegate {
+    func callStatusVacancy(with data: VacancyDetails) {
+        //
+    }
+    
     func alertError(with message: String) {
-        alertDialog(title: "Erro de API",
-                    message: message,
-                    handler: { _ in self.viewModel.getCars() }
-        )
+//        alertDialog(title: "Erro de API",
+//                    message: message,
+//                    handler: { _ in self.viewModel.getCars() }
+//        )
     }
     
     func reloadData() {
@@ -183,5 +206,13 @@ extension HomeViewController: HomeViewDelegate {
             print(self.viewModel.parking.count)
         }
         print("ReloadData: \(self.viewModel.parking)")
+    }
+    
+    func callStatusVacancy(with data: ParkingApiResponse) {
+        let statusVacancy = StatusVacancyViewController(vacancy: data)
+        let rootDetailController = UINavigationController(rootViewController: statusVacancy)
+        statusVacancy.modalPresentationStyle = .overCurrentContext
+//        statusVacancy.viewModel.numVacancy = indexPath.row
+        self.present(rootDetailController, animated: true)
     }
 }

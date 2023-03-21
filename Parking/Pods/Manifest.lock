@@ -1,16 +1,30 @@
 PODS:
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
   - TextFieldFormatter (0.1.0)
 
 DEPENDENCIES:
+  - RxCocoa
+  - RxSwift
   - TextFieldFormatter
 
 SPEC REPOS:
   trunk:
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - TextFieldFormatter
 
 SPEC CHECKSUMS:
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   TextFieldFormatter: 86dfe06160a885f6eb985e1266bb24a874debb9a
 
-PODFILE CHECKSUM: edec48930ac0b640372ea3b685f7fa6e779630c6
+PODFILE CHECKSUM: 26f4becf58bed2001ac9817ef2c989ddbb1ee82c
 
 COCOAPODS: 1.11.3
